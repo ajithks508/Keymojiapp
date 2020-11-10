@@ -1,17 +1,22 @@
 import gql from "graphql-tag";
 
-const PRODUCTS_LIST = gql`query  productCategory($id : ID!){
+const PRODUCTS_LIST = gql`query  Product_Category($id: ID!){
 
   productCategory(id: $id) {
     id
+    name
     products {
       nodes {
-        id
-        name
-        image {
-          slug
-          sourceUrl
+        ... on SimpleProduct {
           id
+          name
+          salePrice
+          regularPrice
+          image {
+            slug
+            sourceUrl
+            id
+          }
         }
       }
     }

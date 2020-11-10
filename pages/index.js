@@ -4,7 +4,7 @@ import client from "../components/ApolloClient";
 import gql from 'graphql-tag';
 import CATEGORY_LIST from "../queries/categorieslist";
 
-const Index = (props) => {
+const index = (props) => {
 	console.warn( props );
 	const { category } = props;
 	return( 
@@ -17,7 +17,7 @@ const Index = (props) => {
 		</Layout>
 		)
 	};
-	Index.getInitialProps = async () => {
+	index.getInitialProps = async () => {
 
 		const result = await client.query( {
 			query: CATEGORY_LIST,
@@ -28,4 +28,4 @@ const Index = (props) => {
 		}
 	
 	};
-export default Index;
+export default index;
