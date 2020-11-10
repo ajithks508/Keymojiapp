@@ -3,7 +3,7 @@ const Footer = () =>{
     return(
         <StickyFooter bottomThreshold={50} normalStyles={{backgroundColor: "#d0d3d4",padding: "2rem"}}
         stickyStyles={{backgroundColor: "rgba(255,255,255,.8)",padding: "2rem",width:"100%"}}>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="row">
                     <div className="col">
                         <i className="ti ti-layout-grid2"></i><br/>

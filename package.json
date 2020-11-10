@@ -2,11 +2,12 @@
   "name": "nextjsapp",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "now dev",
+    "build": "next build",
+    "start": "next start"
   },
-  "author": "",
+  "author": "ajithks508",
   "license": "ISC",
   "dependencies": {
     "@icon/themify-icons": "^1.0.1-alpha.3",
