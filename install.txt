@@ -16,6 +16,7 @@ npm i react-sticky-header/react-sticky-footer
 npm i graphql graphql-tag apollo-boost apollo-cache-inmemory apollo-link-http react-apollo
 npm i react-bootstrap bootstrap
 npm i lodash-next
+npm i -g now
 npm i -g vercel
 
 

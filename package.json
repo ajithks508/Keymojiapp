@@ -4,8 +4,10 @@
   "description": "",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "npm run build-fragment && next build",
+    "build-fragment": "node schemaQuery.js",
+    "start": "next start",
+    "deploy": "npm run build && now"
   },
   "author": "ajithks508",
   "license": "ISC",
