@@ -1,7 +1,6 @@
 import Layout from "../components/home/Layout";
 import Category from "../components/home/Category";
 import client from "../components/ApolloClient";
-import gql from 'graphql-tag';
 import CATEGORY_LIST from "../queries/categorieslist";
 
 const index = (props) => {

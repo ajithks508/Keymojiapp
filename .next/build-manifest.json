@@ -14,12 +14,12 @@
     "static/development/_ssgManifest.js"
   ],
   "pages": {
-    "/": [
+    "/Shop": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
       "static/css/styles.chunk.css",
       "static/chunks/styles.js",
-      "static/chunks/pages/index.js"
+      "static/chunks/pages/Shop.js"
     ],
     "/_app": [
       "static/chunks/main.js",
@@ -31,12 +31,12 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
-    "/listproduct": [
+    "/singlepro": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
       "static/css/styles.chunk.css",
       "static/chunks/styles.js",
-      "static/chunks/pages/listproduct.js"
+      "static/chunks/pages/singlepro.js"
     ]
   },
   "ampFirstPages": []

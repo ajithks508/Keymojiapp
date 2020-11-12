@@ -14,8 +14,8 @@
           "dest": "/listproduct?slug=$slug"
         },
         {
-          "src": "/",
-          "dest": "/"
+          "src": "/singlepro/(?<slug>[^/]+)$",
+          "dest": "/singlepro?slug=$slug"
         }
       ]
     }

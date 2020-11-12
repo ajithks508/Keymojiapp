@@ -15,7 +15,7 @@ const listproduct = withRouter( props => {
 				<div className="product-container row">
 					{ undefined !== products && products.length ? (
 						products.map( lst => <Productlistbycat key={ lst.id } lst={ lst } /> )
-					) : ''}
+					) : ' '}
 				</div>
 			</div>
 		</Layout>

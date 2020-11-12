@@ -4,6 +4,7 @@ import Footerdata from '../Footerdata';
 import Header from '../Header';
 import Category from './Category';
 import HomePage from './HomePage';
+import Image from 'react-bootstrap/Image';
 
 const Layout = (probc) => {
     return(
@@ -19,6 +20,14 @@ const Layout = (probc) => {
                 </div>
             </section>
             { probc.children }
+            <div>
+				<Image src="http://localhost/wordpress/wp-content/uploads/2020/11/slider-short.png" width="100%" fluid />
+			</div>
+            <section className="product-containerhome">
+                <div className="headnew">
+                    <h4>SOCIAL NETWORK</h4>
+                </div>
+            </section>
             <Footerdata/>
             <Footer/>
         </div>

@@ -18,6 +18,8 @@ npm i react-bootstrap bootstrap
 npm i lodash-next
 npm i -g now
 npm i -g vercel
+npm i react-elastic-carousel
+npm i styled-components
 
 
 

@@ -58,6 +58,42 @@ ul{
 .homecontainer{
 	align-items: center;
 }
+.test{
+	color:rebeccapurple;
+	font-size: 20;
+}
+.product-details{
+	padding: 15px;
+}
+.socialicon{
+	padding: 15px;
+	font-size: 35px;
+}
+.dropdown{
+	padding: 10px;
+}
+.product__price{
+	font-size: 16px;
+	color: red;
+}
+.App {
+	font-family: sans-serif;
+	align-items: center;
+	justify-content: center;
+	height: auto;
+	padding: 10px;
+	border: 10px;
+	border-radius: 2px;
+	border-style: solid;
+  }
+  
+.ti-star{
+	color: yellow;
+}
+.sinbutton{
+	padding: 10px;
+	background-color:  #ecf0f1 ;
+}
 .newone{
 	display: flex;
 	flex-flow: wrap;
@@ -231,8 +267,12 @@ ul{
 	padding-left: 20px;
 }
 .nav-item{
-	font-weight: bold;
+	font-weight:lighter;
 	color:  #5d6d7e	;
+}
+.nav-item:hover{
+	font-weight: bold;
+	color: black;
 }
 .lnk{
 	color: white;

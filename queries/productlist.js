@@ -9,6 +9,7 @@ const PRODUCTS_LIST = gql`query  Product_Category($id: ID!){
       nodes {
         ... on SimpleProduct {
           id
+          slug
           name
           salePrice
           regularPrice

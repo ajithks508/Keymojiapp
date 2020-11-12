@@ -20,7 +20,7 @@ const Navdata = () =>{
         <Nav.Link href="/Shop" className="nav-item">SHOP</Nav.Link>
         <Nav.Link href="/gallery" className="nav-item">GALLERY</Nav.Link>
         <Nav.Link href="/About" className="nav-item">ABOUT US</Nav.Link>
-        <Nav.Link href="#link" className="nav-item">CART</Nav.Link>
+        <Nav.Link href="/singleproduct" className="nav-item">CART</Nav.Link>
         <Nav.Link href="#link" className="nav-item">WISHLIST</Nav.Link>
         <Nav.Link href="#link" className="nav-item">MY ACCOUNT</Nav.Link>
         <Nav.Link href="#link" className="nav-item">LOGOUT</Nav.Link>

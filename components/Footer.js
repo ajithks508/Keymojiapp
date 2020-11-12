@@ -1,18 +1,20 @@
 import StickyFooter from 'react-sticky-footer';
+import Link from 'next/link';
 const Footer = () =>{
     return(
-        <StickyFooter bottomThreshold={50} normalStyles={{backgroundColor: "#d0d3d4",padding: "2rem"}}
-        stickyStyles={{backgroundColor: "rgba(255,255,255,.8)",padding: "2rem",width:"100%"}}>
-            <nav className="navbar navbar-expand-lg navbar-light">
+        <StickyFooter bottomThreshold={50} normalStyles={{backgroundColor: "#d0d3d4",padding: "2rem" }}
+        stickyStyles={{backgroundColor: "rgba(255,255,255,.8)",padding: "2rem",width:"100%"}} className="hidden">
+            <nav className="navbar navbar-expand-lg navbar-light ">
                 <div className="row">
                     <div className="col">
-                        <i className="ti ti-layout-grid2"></i><br/>
+                        <a href="/Shop"><i className="ti ti-layout-grid2"></i></a>
+                        <br/>
                         <label>Shop</label>
                     </div>
-                    <div className="col">
+                    {/*<div className="col">
                         <i className="ti ti-heart"></i><br/>
                         <label>Wishlist</label>
-                    </div>
+                    </div>*/}
                     <div className="col">
                         <i className="ti ti-shopping-cart"></i><br/>
                         <label>Cart</label>
