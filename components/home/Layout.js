@@ -5,6 +5,7 @@ import Header from '../Header';
 import Category from './Category';
 import HomePage from './HomePage';
 import Image from 'react-bootstrap/Image';
+import Newproducts from './Newproducts';
 
 const Layout = (probc) => {
     return(
@@ -25,11 +26,9 @@ const Layout = (probc) => {
 			</div>
             <section className="product-containerhome">
                 <div className="headnew">
-                    <h4>SOCIAL NETWORK</h4>
+                    <h4>NEW ON KEYMOJI</h4>
                 </div>
             </section>
-            <Footerdata/>
-            <Footer/>
         </div>
     );
 }

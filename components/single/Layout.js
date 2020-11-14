@@ -10,8 +10,9 @@ const Layout =(probt)=>{
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"/>
             <Navdata/>
             {probt.children}
-            <Footerdata/>
-            <Footer/>
+            <div style={{paddingTop:"10px"}}>
+                <hr></hr>
+            </div>
         </div>
     );
 

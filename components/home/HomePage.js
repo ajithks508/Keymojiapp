@@ -30,7 +30,7 @@ const HomePage = () =>{
 
                     <section className="product-container">
         <div className="headnew">
-            <h4>NEW ON KEYMOJI</h4>
+            <h4>FEATURED PRODUCTS</h4>
         </div>
         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
             <div className="card text-center card-product">

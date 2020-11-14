@@ -20,6 +20,7 @@ npm i -g now
 npm i -g vercel
 npm i react-elastic-carousel
 npm i styled-components
+npm i use-input-file
 
 
 

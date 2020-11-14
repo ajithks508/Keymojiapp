@@ -55,6 +55,11 @@ ul{
 	flex-flow: wrap;
 	align-items: center;
 }
+.product-cont{
+	width: 100%;
+	align-items: center;
+	padding-top: 20px;
+}
 .homecontainer{
 	align-items: center;
 }
@@ -72,6 +77,9 @@ ul{
 .dropdown{
 	padding: 10px;
 }
+.fileadd{
+	color: red;
+}
 .product__price{
 	font-size: 16px;
 	color: red;
@@ -80,7 +88,8 @@ ul{
 	font-family: sans-serif;
 	align-items: center;
 	justify-content: center;
-	height: auto;
+	height: 12rem;
+	width: 100%;
 	padding: 10px;
 	border: 10px;
 	border-radius: 2px;
@@ -101,7 +110,14 @@ ul{
 .headnew{
 	width: 100%;
 }
+.headrel {
+	text-align: center;
+	color: #cb4335;
+	font-weight: bold;
+	font-size: 45px;	
+}
 .headnew h4{
+	text-align: center;
 	color: #cb4335;
 	font-weight: bold;
 	padding-left: 15px;

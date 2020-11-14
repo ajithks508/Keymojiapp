@@ -10,6 +10,16 @@ const CATEGORY_LIST = gql`query {
             slug
             sourceUrl
           }
+          products(first: 8) {
+            nodes {
+              name
+              id
+              image {
+                id
+                sourceUrl
+              }
+            }
+          }
         }
       }
   }`;

@@ -1,23 +1,32 @@
 import Layout from '../components/single/Layout';
 import Singleproduct from '../components/single/Singleproduct';
+import Relatedproducts from '../components/single/Relatedproducts';
 import { withRouter } from 'next/router';
 import client from "../components/ApolloClient";
 import SINGLE_PRODUCTS from "../queries/sinproduct";
+import PRODUCTS_LIST from "../queries/productlist";
+import Layout1 from "../components/single/Layout1";
 const singlepro = withRouter( props => {
 
-	const { products } = props;
+	const { products,relproduct } = props;
 
 	return (
+		<div>
 		<Layout>
 			<div className="content-wrap">
 				<Singleproduct key={ products.id } products={ products }/>
 			</div>
-			<section className="product-containerhome">
-                <div className="headnew">
-                    <h4>RELATED PRODUCTS</h4>
-                </div>
-            </section>
 		</Layout>
+		<Layout1>
+			<div className="content-wrap">
+				<div className="product-container row">
+					{ relproduct.length ? (
+							relproduct.map( cat => <Relatedproducts key={ cat.id } cat={ cat }/> )
+								) : '' }
+				</div>
+			</div>
+		</Layout1>
+		</div>
 	)
 });
 
@@ -33,7 +42,8 @@ singlepro.getInitialProps = async function( context ) {
 	}));
 
 	return {
-		products: res.data.product
+		products: res.data.product,
+		relproduct:res.data.product.productCategories.nodes[0].products.nodes
 	}
 
 };
