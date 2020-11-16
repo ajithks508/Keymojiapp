@@ -2,8 +2,9 @@ import StickyFooter from 'react-sticky-footer';
 import Link from 'next/link';
 const Footer = () =>{
     return(
+        <div className="hidden-lg">
         <StickyFooter bottomThreshold={50} normalStyles={{backgroundColor: "#d0d3d4",padding: "2rem" }}
-        stickyStyles={{backgroundColor: "rgba(255,255,255,.8)",padding: "2rem",width:"100%"}} className="hidden">
+        stickyStyles={{backgroundColor: "rgba(255,255,255,.8)",padding: "2rem",width:"100%"}}>
             <nav className="navbar navbar-expand-lg navbar-light ">
                 <div className="row">
                     <div className="col">
@@ -26,6 +27,7 @@ const Footer = () =>{
                 </div>
             </nav>
         </StickyFooter>
+        </div>
     );
 }
 export default Footer;
