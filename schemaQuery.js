@@ -36,4 +36,5 @@ fetch( `${ wooConfig.graphqlUrl }`, {
 			console.log( 'Fragment types successfully extracted!' );
 		}
 	} );
-} );
+} )
+.catch();
