@@ -1,0 +1,1 @@
+{"ast":null,"code":"import gql from \"graphql-tag\";\nconst MEDIA_LIST = gql`query {\n  products {\n    nodes {\n      image {\n        id\n        slug\n        sourceUrl\n      }\n    }\n  }\n}`;\nexport default MEDIA_LIST;","map":null,"metadata":{},"sourceType":"module"}
