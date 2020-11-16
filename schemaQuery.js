@@ -2,29 +2,29 @@ const fetch     = require( 'node-fetch' );
 const fs        = require( 'fs' );
 const wooConfig = require( './wooConfig' );
 
-fetch( `${ wooConfig.graphqlUrl }`, {
-	method: 'POST',
-	headers: { 'Content-Type': 'application/json' },
-	body: JSON.stringify( {
-		variables: {},
-		query: `
-      {
-        __schema {
-          types {
-            kind
-            name
-            possibleTypes {
-              name
-            }
-          }
-        }
-      }
-    `,
-	} ),
-} )
-.then( result => result.json() )
-.then( result => {
-	try{
+try {
+	fetch( `${ wooConfig.graphqlUrl }`, {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify( {
+			variables: {},
+			query: `
+		{
+			__schema {
+			types {
+				kind
+				name
+				possibleTypes {
+				name
+				}
+			}
+			}
+		}
+		`,
+		} ),
+	} )
+	.then( result => result.json() )
+	.then( result => {
 
 		// here we're filtering out any type information unrelated to unions or interfaces
 		const filteredData         = result.data.__schema.types.filter(
@@ -38,7 +38,8 @@ fetch( `${ wooConfig.graphqlUrl }`, {
 				console.log( 'Fragment types successfully extracted!' );
 			}
 		} );
-	} catch (err) {
-		next(err);
-	}
-} );
+
+	} );
+} catch (err) {
+	next(err);
+}
