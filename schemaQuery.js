@@ -22,11 +22,13 @@ fetch( `${ wooConfig.graphqlUrl }`, {
     `,
 	} ),
 } )
-	.then( result => result.json() )
-	.then( result => {
+.then( result => result.json() )
+.then( result => {
+	try{
+
 		// here we're filtering out any type information unrelated to unions or interfaces
 		const filteredData         = result.data.__schema.types.filter(
-			type => type.possibleTypes !== null,
+		type => type.possibleTypes !== null,
 		);
 		result.data.__schema.types = filteredData;
 		fs.writeFile( './fragmentTypes.json', JSON.stringify( result.data ), err => {
@@ -36,4 +38,7 @@ fetch( `${ wooConfig.graphqlUrl }`, {
 				console.log( 'Fragment types successfully extracted!' );
 			}
 		} );
-	} );
+	} catch (err) {
+		next(err);
+	}
+} );
