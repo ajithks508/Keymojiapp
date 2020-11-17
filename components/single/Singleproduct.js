@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import React from "react";
 import Carousel from "react-elastic-carousel";
 import Item from "./Item";
 import Image from 'react-bootstrap/Image';
 import Form from 'react-bootstrap/Form';
+import AddtoCartButton from '.././carticon/AddtoCartButton';
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -72,9 +72,7 @@ const Singleproduct = (propl) =>{
                             <div className="sinbutton">
                                 <Form.Control type="text" placeholder="Register Number" />
                             </div>
-                        <Button variant="outline-danger" size="lg" block>
-                            ADD TO CART
-                        </Button>
+                            <AddtoCartButton products={products}/>
                     </div>
                     <div className="pd-share">
                         <div className="p-code">Sku : 00012</div>

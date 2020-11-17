@@ -1,5 +1,6 @@
 import StickyFooter from 'react-sticky-footer';
 import Link from 'next/link';
+import Carticon from './carticon/Carticon';
 const Footer = () =>{
     return(
         <div className="hidden-lg">
@@ -17,8 +18,7 @@ const Footer = () =>{
                         <label>Wishlist</label>
                     </div>*/}
                     <div className="col">
-                        <i className="ti ti-shopping-cart"></i><br/>
-                        <label>Cart</label>
+                            <Carticon/>
                     </div>
                     <div className="col">
                         <i className="ti ti-user"></i>
