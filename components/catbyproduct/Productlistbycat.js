@@ -1,6 +1,6 @@
 import Link from 'next/link';
-const Productlistbycat = (propl) =>{
-    const { lst } = propl;
+const Productlistbycat = (propli) =>{
+    const { lst } = propli;
     return(
         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
         <div className="card text-center card-product">

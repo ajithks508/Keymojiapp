@@ -6,7 +6,7 @@ const Category = (propc) =>{
             <div className="card text-center card-product">
                 <div className="card-product__img">
                     <Link  href={`/listproduct?slug=${ cat.slug }-${ cat.id }`}>
-                        <a><img src={ cat.image.sourceUrl} alt="Product image"/></a>
+                        <a><img src={ cat.image?cat.image.sourceUrl:''} alt="Product image"/></a>
                     </Link>
                     
                 </div>

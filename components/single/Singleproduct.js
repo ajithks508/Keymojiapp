@@ -6,7 +6,7 @@ import Carousel from "react-elastic-carousel";
 import Item from "./Item";
 import Image from 'react-bootstrap/Image';
 import Form from 'react-bootstrap/Form';
-import AddtoCartButton from '.././carticon/AddtoCartButton';
+import AddtoCartButton from '../carticon/AddtoCartButton';
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -18,8 +18,8 @@ function handleAdd(e) {
     var img1 = document.getElementById('img1');
     img1.src = e.target.src;
   }
-const Singleproduct = (propl) =>{
-    const { products } = propl;
+const Singleproduct = (propsnp) =>{
+    const { products } = propsnp;
     return(
         <div className="row">
                 <div className="col-xl-2 col-lg-2"></div>

@@ -4,9 +4,8 @@ import client from "../components/ApolloClient";
 import MEDIA_LIST from "../queries/mediaitems";
 
 
-const gallery = ( props ) => {
-	console.warn( props );
-	const { mediaItems } = props;
+const gallery = ( propg ) => {
+	const { mediaItems } = propg;
 	return( 
 		<Layout>
             <div className="product-container">

@@ -1,13 +1,11 @@
 import Layout from "../components/shop/Layout";
 import Product from "../components/shop/Product";
 import client from "../components/ApolloClient";
-import gql from 'graphql-tag';
 import CATEGORY_LIST from "../queries/categorieslist";
 
 
-const Shop = ( props ) => {
-	console.warn( props );
-	const { category } = props;
+const Shop = ( propsh ) => {
+	const { category } = propsh;
 	return( 
 		<Layout>
             <div className="product-container">

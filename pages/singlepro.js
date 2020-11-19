@@ -4,11 +4,10 @@ import Relatedproducts from '../components/single/Relatedproducts';
 import { withRouter } from 'next/router';
 import client from "../components/ApolloClient";
 import SINGLE_PRODUCTS from "../queries/sinproduct";
-import PRODUCTS_LIST from "../queries/productlist";
 import Layout1 from "../components/single/Layout1";
-const singlepro = withRouter( props => {
+const singlepro = withRouter( propsin => {
 
-	const { products,relproduct } = props;
+	const { products,relproduct } = propsin;
 
 	return (
 		<div>
@@ -19,7 +18,7 @@ const singlepro = withRouter( props => {
 		</Layout>
 		<Layout1>
 			<div className="content-wrap">
-				<div className="product-container row">
+				<div className="product-container">
 					{ relproduct.length ? (
 							relproduct.map( cat => <Relatedproducts key={ cat.id } cat={ cat }/> )
 								) : '' }

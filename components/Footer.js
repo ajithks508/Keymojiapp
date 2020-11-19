@@ -1,33 +1,19 @@
 import StickyFooter from 'react-sticky-footer';
-import Link from 'next/link';
 import Carticon from './carticon/Carticon';
 const Footer = () =>{
     return(
-        <div className="hidden-lg">
-        <StickyFooter bottomThreshold={50} normalStyles={{backgroundColor: "#d0d3d4",padding: "2rem" }}
+        <StickyFooter bottomThreshold={50} normalStyles={{backgroundColor: "#d0d3d4",padding: "2rem",align:"centers"}}
         stickyStyles={{backgroundColor: "rgba(255,255,255,.8)",padding: "2rem",width:"100%"}}>
-            <nav className="navbar navbar-expand-lg navbar-light ">
-                <div className="row">
-                    <div className="col">
-                        <a href="/Shop"><i className="ti ti-layout-grid2"></i></a>
-                        <br/>
-                        <label>Shop</label>
+                <div className="row" style={{textAlign:'center'}}>
+                        <a href="/Shop" className="colf"><i className="ti ti-layout-grid2"></i><br/>
+                        <i style={{fontSize:"10px",color:"black"}}>Shop</i></a>
+                        <a href="/Shop" className="colf"><i className="ti ti-heart"></i><br/>
+                        <i style={{fontSize:"10px",color:"black"}}>Wishlist</i></a>
+                        <a href="/Shop" className="colf"><i className="ti ti-user"></i><br/>
+                        <i style={{fontSize:"10px",color:"black"}}>Account</i></a>
+                        <a href="/Shop" className="colf"><Carticon/></a>
                     </div>
-                    {/*<div className="col">
-                        <i className="ti ti-heart"></i><br/>
-                        <label>Wishlist</label>
-                    </div>*/}
-                    <div className="col">
-                            <Carticon/>
-                    </div>
-                    <div className="col">
-                        <i className="ti ti-user"></i>
-                        <label>Account</label>
-                    </div>
-                </div>
-            </nav>
         </StickyFooter>
-        </div>
     );
 }
 export default Footer;

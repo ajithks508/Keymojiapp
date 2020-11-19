@@ -88,2453 +88,287 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./pages/gallery.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "/jkW":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.isDynamicRoute = isDynamicRoute; // Identify /[param]/ in route string
-
-const TEST_ROUTE = /\/\[[^/]+?\](?=\/|$)/;
-
-function isDynamicRoute(route) {
-  return TEST_ROUTE.test(route);
-}
-
-/***/ }),
-
-/***/ "0Bsm":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__("TqRt");
-
-exports.__esModule = true;
-exports.default = withRouter;
-
-var _react = _interopRequireDefault(__webpack_require__("cDcd"));
-
-var _router = __webpack_require__("nOHt");
-
-function withRouter(ComposedComponent) {
-  function WithRouterWrapper(props) {
-    return /*#__PURE__*/_react.default.createElement(ComposedComponent, Object.assign({
-      router: (0, _router.useRouter)()
-    }, props));
-  }
-
-  WithRouterWrapper.getInitialProps = ComposedComponent.getInitialProps // This is needed to allow checking for custom getInitialProps in _app
-  ;
-  WithRouterWrapper.origGetInitialProps = ComposedComponent.origGetInitialProps;
-
-  if (false) {}
-
-  return WithRouterWrapper;
-}
-
-/***/ }),
-
-/***/ 2:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("dmCw");
-
-
-/***/ }),
-
-/***/ "284h":
-/***/ (function(module, exports, __webpack_require__) {
-
-var _typeof = __webpack_require__("cDf5");
-
-function _getRequireWildcardCache() {
-  if (typeof WeakMap !== "function") return null;
-  var cache = new WeakMap();
-
-  _getRequireWildcardCache = function _getRequireWildcardCache() {
-    return cache;
-  };
-
-  return cache;
-}
-
-function _interopRequireWildcard(obj) {
-  if (obj && obj.__esModule) {
-    return obj;
-  }
-
-  if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
-    return {
-      "default": obj
-    };
-  }
-
-  var cache = _getRequireWildcardCache();
-
-  if (cache && cache.has(obj)) {
-    return cache.get(obj);
-  }
-
-  var newObj = {};
-  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
-
-  for (var key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
-
-      if (desc && (desc.get || desc.set)) {
-        Object.defineProperty(newObj, key, desc);
-      } else {
-        newObj[key] = obj[key];
-      }
-    }
-  }
-
-  newObj["default"] = obj;
-
-  if (cache) {
-    cache.set(obj, newObj);
-  }
-
-  return newObj;
-}
-
-module.exports = _interopRequireWildcard;
-
-/***/ }),
-
-/***/ "2S/i":
-/***/ (function(module, exports) {
-
-module.exports = require("react-bootstrap/Form");
-
-/***/ }),
-
-/***/ "3WeD":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.searchParamsToUrlQuery = searchParamsToUrlQuery;
-exports.urlQueryToSearchParams = urlQueryToSearchParams;
-exports.assign = assign;
-
-function searchParamsToUrlQuery(searchParams) {
-  const query = {};
-  searchParams.forEach((value, key) => {
-    if (typeof query[key] === 'undefined') {
-      query[key] = value;
-    } else if (Array.isArray(query[key])) {
-      ;
-      query[key].push(value);
-    } else {
-      query[key] = [query[key], value];
-    }
-  });
-  return query;
-}
-
-function stringifyUrlQueryParam(param) {
-  if (typeof param === 'string' || typeof param === 'number' && !isNaN(param) || typeof param === 'boolean') {
-    return String(param);
-  } else {
-    return '';
-  }
-}
-
-function urlQueryToSearchParams(urlQuery) {
-  const result = new URLSearchParams();
-  Object.entries(urlQuery).forEach(([key, value]) => {
-    if (Array.isArray(value)) {
-      value.forEach(item => result.append(key, stringifyUrlQueryParam(item)));
-    } else {
-      result.set(key, stringifyUrlQueryParam(value));
-    }
-  });
-  return result;
-}
-
-function assign(target, ...searchParamsList) {
-  searchParamsList.forEach(searchParams => {
-    Array.from(searchParams.keys()).forEach(key => target.delete(key));
-    searchParams.forEach((value, key) => target.append(key, value));
-  });
-  return target;
-}
-
-/***/ }),
-
-/***/ "4+wR":
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "4vsW":
-/***/ (function(module, exports) {
-
-module.exports = require("node-fetch");
-
-/***/ }),
-
-/***/ "6D7l":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.formatUrl = formatUrl;
-
-var querystring = _interopRequireWildcard(__webpack_require__("3WeD"));
-
-function _getRequireWildcardCache() {
-  if (typeof WeakMap !== "function") return null;
-  var cache = new WeakMap();
-
-  _getRequireWildcardCache = function () {
-    return cache;
-  };
-
-  return cache;
-}
-
-function _interopRequireWildcard(obj) {
-  if (obj && obj.__esModule) {
-    return obj;
-  }
-
-  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
-    return {
-      default: obj
-    };
-  }
-
-  var cache = _getRequireWildcardCache();
-
-  if (cache && cache.has(obj)) {
-    return cache.get(obj);
-  }
-
-  var newObj = {};
-  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
-
-  for (var key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
-
-      if (desc && (desc.get || desc.set)) {
-        Object.defineProperty(newObj, key, desc);
-      } else {
-        newObj[key] = obj[key];
-      }
-    }
-  }
-
-  newObj.default = obj;
-
-  if (cache) {
-    cache.set(obj, newObj);
-  }
-
-  return newObj;
-} // Format function modified from nodejs
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-const slashedProtocols = /https?|ftp|gopher|file/;
-
-function formatUrl(urlObj) {
-  let {
-    auth,
-    hostname
-  } = urlObj;
-  let protocol = urlObj.protocol || '';
-  let pathname = urlObj.pathname || '';
-  let hash = urlObj.hash || '';
-  let query = urlObj.query || '';
-  let host = false;
-  auth = auth ? encodeURIComponent(auth).replace(/%3A/i, ':') + '@' : '';
-
-  if (urlObj.host) {
-    host = auth + urlObj.host;
-  } else if (hostname) {
-    host = auth + (~hostname.indexOf(':') ? `[${hostname}]` : hostname);
-
-    if (urlObj.port) {
-      host += ':' + urlObj.port;
-    }
-  }
-
-  if (query && typeof query === 'object') {
-    query = String(querystring.urlQueryToSearchParams(query));
-  }
-
-  let search = urlObj.search || query && `?${query}` || '';
-  if (protocol && protocol.substr(-1) !== ':') protocol += ':';
-
-  if (urlObj.slashes || (!protocol || slashedProtocols.test(protocol)) && host !== false) {
-    host = '//' + (host || '');
-    if (pathname && pathname[0] !== '/') pathname = '/' + pathname;
-  } else if (!host) {
-    host = '';
-  }
-
-  if (hash && hash[0] !== '#') hash = '#' + hash;
-  if (search && search[0] !== '?') search = '?' + search;
-  pathname = pathname.replace(/[?#]/g, encodeURIComponent);
-  search = search.replace('#', '%23');
-  return `${protocol}${host}${pathname}${search}${hash}`;
-}
-
-/***/ }),
-
-/***/ "6rvL":
-/***/ (function(module, exports) {
-
-module.exports = require("react-bootstrap/Nav");
-
-/***/ }),
-
-/***/ "8lYe":
+/***/ "./client-config.js":
+/*!**************************!*\
+  !*** ./client-config.js ***!
+  \**************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-// EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__("F5FC");
-
-// EXTERNAL MODULE: external "react-sticky-footer"
-var external_react_sticky_footer_ = __webpack_require__("9GV5");
-var external_react_sticky_footer_default = /*#__PURE__*/__webpack_require__.n(external_react_sticky_footer_);
-
-// EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__("YFqc");
-
-// EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__("cDcd");
-
-// EXTERNAL MODULE: ./components/context/AppContext.js
-var AppContext = __webpack_require__("szwz");
-
-// CONCATENATED MODULE: ./components/carticon/Carticon.js
-
-
-
-
-
-
-const Carticon = () => {
-  const {
-    0: cart,
-    1: setCart
-  } = Object(external_react_["useContext"])(AppContext["a" /* AppContext */]);
-  const productsCount = null !== cart && Object.keys(cart).length ? cart.totalProductsCount : '';
-  const totalPrice = null !== cart && Object.keys(cart).length ? cart.totalProductsPrice : '';
-  return /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-    children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("i", {
-      className: "ti ti-shopping-cart"
-    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("br", {}), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("label", {
-      children: ["Cart", /*#__PURE__*/Object(jsx_runtime_["jsxs"])("label", {
-        children: ["'('", productsCount ? productsCount : '', "')'"]
-      })]
-    })]
-  });
+__webpack_require__.r(__webpack_exports__);
+const clientConfig = {
+  siteUrl: 'http://localhost:3000',
+  graphqlUrl: 'http://localhost/wordpress/graphql'
 };
+/* harmony default export */ __webpack_exports__["default"] = (clientConfig);
 
-/* harmony default export */ var carticon_Carticon = (Carticon);
-// CONCATENATED MODULE: ./components/Footer.js
+/***/ }),
+
+/***/ "./components/ApolloClient.js":
+/*!************************************!*\
+  !*** ./components/ApolloClient.js ***!
+  \************************************/
+/*! exports provided: middleware, afterware, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "middleware", function() { return middleware; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "afterware", function() { return afterware; });
+/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! node-fetch */ "node-fetch");
+/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(node_fetch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var apollo_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apollo-client */ "apollo-client");
+/* harmony import */ var apollo_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(apollo_client__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-cache-inmemory */ "apollo-cache-inmemory");
+/* harmony import */ var apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var apollo_link_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-link-http */ "apollo-link-http");
+/* harmony import */ var apollo_link_http__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(apollo_link_http__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var apollo_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-link */ "apollo-link");
+/* harmony import */ var apollo_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(apollo_link__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _fragmentTypes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../fragmentTypes */ "./fragmentTypes.json");
+var _fragmentTypes__WEBPACK_IMPORTED_MODULE_5___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../fragmentTypes */ "./fragmentTypes.json", 1);
+/* harmony import */ var _client_config__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../client-config */ "./client-config.js");
 
 
 
+
+
+
+
+ // Fragment matcher.
+
+const fragmentMatcher = new apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__["IntrospectionFragmentMatcher"]({
+  introspectionQueryResultData: _fragmentTypes__WEBPACK_IMPORTED_MODULE_5__
+});
+const middleware = new apollo_link__WEBPACK_IMPORTED_MODULE_4__["ApolloLink"]((operation, forward) => {
+  /**
+   * If session data exist in local storage, set value as session header.
+   */
+  const session = false ? undefined : null;
+
+  if (session) {
+    operation.setContext(({
+      headers = {}
+    }) => ({
+      headers: {
+        "woocommerce-session": `Session ${session}`
+      }
+    }));
+  }
+
+  return forward(operation);
+});
+/**
+ * Afterware operation.
+ *
+ * This catches the incoming session token and stores it in localStorage, for future GraphQL requests.
+ */
+
+const afterware = new apollo_link__WEBPACK_IMPORTED_MODULE_4__["ApolloLink"]((operation, forward) => {
+  return forward(operation).map(response => {
+    /**
+     * Check for session header and update session in local storage accordingly.
+     */
+    const context = operation.getContext();
+    const {
+      response: {
+        headers
+      }
+    } = context;
+    const session = headers.get("woocommerce-session");
+
+    if (session) {
+      // Remove session data if session destroyed.
+      if ("false" === session) {
+        localStorage.removeItem("woo-session"); // Update session new data if changed.
+      } else if (localStorage.getItem("woo-session") !== session) {
+        localStorage.setItem("woo-session", headers.get("woocommerce-session"));
+      }
+    }
+
+    return response;
+  });
+}); // Apollo GraphQL client.
+
+const client = new apollo_client__WEBPACK_IMPORTED_MODULE_1__["ApolloClient"]({
+  link: middleware.concat(afterware.concat(Object(apollo_link_http__WEBPACK_IMPORTED_MODULE_3__["createHttpLink"])({
+    uri: _client_config__WEBPACK_IMPORTED_MODULE_6__["default"].graphqlUrl,
+    fetch: node_fetch__WEBPACK_IMPORTED_MODULE_0___default.a
+  }))),
+  cache: new apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__["InMemoryCache"]({
+    fragmentMatcher
+  })
+});
+/* harmony default export */ __webpack_exports__["default"] = (client);
+
+/***/ }),
+
+/***/ "./components/Footer.js":
+/*!******************************!*\
+  !*** ./components/Footer.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "react/jsx-dev-runtime");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_sticky_footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-sticky-footer */ "react-sticky-footer");
+/* harmony import */ var react_sticky_footer__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_sticky_footer__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _carticon_Carticon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./carticon/Carticon */ "./components/carticon/Carticon.js");
+
+var _jsxFileName = "C:\\Users\\ajith\\Desktop\\keymoji\\components\\Footer.js";
 
 
 
 const Footer = () => {
-  return /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-    className: "hidden-lg",
-    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(external_react_sticky_footer_default.a, {
-      bottomThreshold: 50,
-      normalStyles: {
-        backgroundColor: "#d0d3d4",
-        padding: "2rem"
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_sticky_footer__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    bottomThreshold: 50,
+    normalStyles: {
+      backgroundColor: "#d0d3d4",
+      padding: "2rem",
+      align: "centers"
+    },
+    stickyStyles: {
+      backgroundColor: "rgba(255,255,255,.8)",
+      padding: "2rem",
+      width: "100%"
+    },
+    children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
+      className: "row",
+      style: {
+        textAlign: 'center'
       },
-      stickyStyles: {
-        backgroundColor: "rgba(255,255,255,.8)",
-        padding: "2rem",
-        width: "100%"
-      },
-      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("nav", {
-        className: "navbar navbar-expand-lg navbar-light ",
-        children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-          className: "row",
-          children: [/*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-            className: "col",
-            children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-              href: "/Shop",
-              children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("i", {
-                className: "ti ti-layout-grid2"
-              })
-            }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("br", {}), /*#__PURE__*/Object(jsx_runtime_["jsx"])("label", {
-              children: "Shop"
-            })]
-          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-            className: "col",
-            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(carticon_Carticon, {})
-          }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-            className: "col",
-            children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("i", {
-              className: "ti ti-user"
-            }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("label", {
-              children: "Account"
-            })]
-          })]
-        })
-      })
-    })
-  });
+      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("a", {
+        href: "/Shop",
+        className: "colf",
+        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("i", {
+          className: "ti ti-layout-grid2"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 8,
+          columnNumber: 58
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("br", {}, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 8,
+          columnNumber: 96
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("i", {
+          style: {
+            fontSize: "10px",
+            color: "black"
+          },
+          children: "Shop"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 9,
+          columnNumber: 25
+        }, undefined)]
+      }, void 0, true, {
+        fileName: _jsxFileName,
+        lineNumber: 8,
+        columnNumber: 25
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("a", {
+        href: "/Shop",
+        className: "colf",
+        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("i", {
+          className: "ti ti-heart"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 10,
+          columnNumber: 58
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("br", {}, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 10,
+          columnNumber: 89
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("i", {
+          style: {
+            fontSize: "10px",
+            color: "black"
+          },
+          children: "Wishlist"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 11,
+          columnNumber: 25
+        }, undefined)]
+      }, void 0, true, {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 25
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("a", {
+        href: "/Shop",
+        className: "colf",
+        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("i", {
+          className: "ti ti-user"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 12,
+          columnNumber: 58
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("br", {}, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 12,
+          columnNumber: 88
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("i", {
+          style: {
+            fontSize: "10px",
+            color: "black"
+          },
+          children: "Account"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 13,
+          columnNumber: 25
+        }, undefined)]
+      }, void 0, true, {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 25
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("a", {
+        href: "/Shop",
+        className: "colf",
+        children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(_carticon_Carticon__WEBPACK_IMPORTED_MODULE_2__["default"], {}, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 14,
+          columnNumber: 58
+        }, undefined)
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 25
+      }, undefined)]
+    }, void 0, true, {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 17
+    }, undefined)
+  }, void 0, false, {
+    fileName: _jsxFileName,
+    lineNumber: 5,
+    columnNumber: 9
+  }, undefined);
 };
 
-/* harmony default export */ var components_Footer = __webpack_exports__["a"] = (Footer);
+/* harmony default export */ __webpack_exports__["default"] = (Footer);
 
 /***/ }),
 
-/***/ "9GV5":
-/***/ (function(module, exports) {
-
-module.exports = require("react-sticky-footer");
-
-/***/ }),
-
-/***/ "F5FC":
-/***/ (function(module, exports) {
-
-module.exports = require("react/jsx-runtime");
-
-/***/ }),
-
-/***/ "Osoz":
-/***/ (function(module, exports) {
-
-module.exports = require("next/dist/next-server/lib/router-context.js");
-
-/***/ }),
-
-/***/ "Oyez":
-/***/ (function(module, exports) {
-
-module.exports = require("apollo-client");
-
-/***/ }),
-
-/***/ "REKQ":
-/***/ (function(module, exports) {
-
-module.exports = require("react-bootstrap/Image");
-
-/***/ }),
-
-/***/ "S3md":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/***/ }),
-
-/***/ "TG1l":
-/***/ (function(module, exports) {
-
-module.exports = require("apollo-link-http");
-
-/***/ }),
-
-/***/ "TqRt":
-/***/ (function(module, exports) {
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-
-module.exports = _interopRequireDefault;
-
-/***/ }),
-
-/***/ "VPFm":
-/***/ (function(module, exports) {
-
-module.exports = require("react-bootstrap/NavDropdown");
-
-/***/ }),
-
-/***/ "X24+":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.removePathTrailingSlash = removePathTrailingSlash;
-exports.normalizePathTrailingSlash = void 0;
-/**
-* Removes the trailing slash of a path if there is one. Preserves the root path `/`.
-*/
-
-function removePathTrailingSlash(path) {
-  return path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
-}
-/**
-* Normalizes the trailing slash of a path according to the `trailingSlash` option
-* in `next.config.js`.
-*/
-
-
-const normalizePathTrailingSlash =  false ? undefined : removePathTrailingSlash;
-exports.normalizePathTrailingSlash = normalizePathTrailingSlash;
-
-/***/ }),
-
-/***/ "YFqc":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("cTJO")
-
-
-/***/ }),
-
-/***/ "YTqd":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.getRouteRegex = getRouteRegex; // this isn't importing the escape-string-regex module
-// to reduce bytes
-
-function escapeRegex(str) {
-  return str.replace(/[|\\{}()[\]^$+*?.-]/g, '\\$&');
-}
-
-function parseParameter(param) {
-  const optional = param.startsWith('[') && param.endsWith(']');
-
-  if (optional) {
-    param = param.slice(1, -1);
-  }
-
-  const repeat = param.startsWith('...');
-
-  if (repeat) {
-    param = param.slice(3);
-  }
-
-  return {
-    key: param,
-    repeat,
-    optional
-  };
-}
-
-function getRouteRegex(normalizedRoute) {
-  const segments = (normalizedRoute.replace(/\/$/, '') || '/').slice(1).split('/');
-  const groups = {};
-  let groupIndex = 1;
-  const parameterizedRoute = segments.map(segment => {
-    if (segment.startsWith('[') && segment.endsWith(']')) {
-      const {
-        key,
-        optional,
-        repeat
-      } = parseParameter(segment.slice(1, -1));
-      groups[key] = {
-        pos: groupIndex++,
-        repeat,
-        optional
-      };
-      return repeat ? optional ? '(?:/(.+?))?' : '/(.+?)' : '/([^/]+?)';
-    } else {
-      return `/${escapeRegex(segment)}`;
-    }
-  }).join(''); // dead code eliminate for browser since it's only needed
-  // while generating routes-manifest
-
-  if (true) {
-    let routeKeyCharCode = 97;
-    let routeKeyCharLength = 1; // builds a minimal routeKey using only a-z and minimal number of characters
-
-    const getSafeRouteKey = () => {
-      let routeKey = '';
-
-      for (let i = 0; i < routeKeyCharLength; i++) {
-        routeKey += String.fromCharCode(routeKeyCharCode);
-        routeKeyCharCode++;
-
-        if (routeKeyCharCode > 122) {
-          routeKeyCharLength++;
-          routeKeyCharCode = 97;
-        }
-      }
-
-      return routeKey;
-    };
-
-    const routeKeys = {};
-    let namedParameterizedRoute = segments.map(segment => {
-      if (segment.startsWith('[') && segment.endsWith(']')) {
-        const {
-          key,
-          optional,
-          repeat
-        } = parseParameter(segment.slice(1, -1)); // replace any non-word characters since they can break
-        // the named regex
-
-        let cleanedKey = key.replace(/\W/g, '');
-        let invalidKey = false; // check if the key is still invalid and fallback to using a known
-        // safe key
-
-        if (cleanedKey.length === 0 || cleanedKey.length > 30) {
-          invalidKey = true;
-        }
-
-        if (!isNaN(parseInt(cleanedKey.substr(0, 1)))) {
-          invalidKey = true;
-        }
-
-        if (invalidKey) {
-          cleanedKey = getSafeRouteKey();
-        }
-
-        routeKeys[cleanedKey] = key;
-        return repeat ? optional ? `(?:/(?<${cleanedKey}>.+?))?` : `/(?<${cleanedKey}>.+?)` : `/(?<${cleanedKey}>[^/]+?)`;
-      } else {
-        return `/${escapeRegex(segment)}`;
-      }
-    }).join('');
-    return {
-      re: new RegExp(`^${parameterizedRoute}(?:/)?$`),
-      groups,
-      routeKeys,
-      namedRegex: `^${namedParameterizedRoute}(?:/)?$`
-    };
-  }
-
-  return {
-    re: new RegExp(`^${parameterizedRoute}(?:/)?$`),
-    groups
-  };
-}
-
-/***/ }),
-
-/***/ "ZOZq":
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"__schema\":{\"types\":[{\"kind\":\"INTERFACE\",\"name\":\"Node\",\"possibleTypes\":[{\"name\":\"Coupon\"},{\"name\":\"ContentType\"},{\"name\":\"Taxonomy\"},{\"name\":\"ProductCategory\"},{\"name\":\"MediaItem\"},{\"name\":\"User\"},{\"name\":\"Comment\"},{\"name\":\"CommentAuthor\"},{\"name\":\"Post\"},{\"name\":\"Category\"},{\"name\":\"PostFormat\"},{\"name\":\"Tag\"},{\"name\":\"ProductType\"},{\"name\":\"VisibleProduct\"},{\"name\":\"ProductTag\"},{\"name\":\"PaColor\"},{\"name\":\"ProductVariation\"},{\"name\":\"VariableProduct\"},{\"name\":\"PaSize\"},{\"name\":\"ShippingClass\"},{\"name\":\"Page\"},{\"name\":\"UserRole\"},{\"name\":\"Customer\"},{\"name\":\"Order\"},{\"name\":\"TaxRate\"},{\"name\":\"Refund\"},{\"name\":\"ShippingMethod\"},{\"name\":\"ExternalProduct\"},{\"name\":\"GroupProduct\"},{\"name\":\"Menu\"},{\"name\":\"MenuItem\"},{\"name\":\"Plugin\"},{\"name\":\"SimpleProduct\"},{\"name\":\"Theme\"}]},{\"kind\":\"INTERFACE\",\"name\":\"TermNode\",\"possibleTypes\":[{\"name\":\"ProductCategory\"},{\"name\":\"Category\"},{\"name\":\"PostFormat\"},{\"name\":\"Tag\"},{\"name\":\"ProductType\"},{\"name\":\"VisibleProduct\"},{\"name\":\"ProductTag\"},{\"name\":\"PaColor\"},{\"name\":\"PaSize\"},{\"name\":\"ShippingClass\"}]},{\"kind\":\"INTERFACE\",\"name\":\"UniformResourceIdentifiable\",\"possibleTypes\":[{\"name\":\"ProductCategory\"},{\"name\":\"MediaItem\"},{\"name\":\"User\"},{\"name\":\"Post\"},{\"name\":\"Category\"},{\"name\":\"PostFormat\"},{\"name\":\"Tag\"},{\"name\":\"ProductType\"},{\"name\":\"VisibleProduct\"},{\"name\":\"ProductTag\"},{\"name\":\"PaColor\"},{\"name\":\"PaSize\"},{\"name\":\"ShippingClass\"},{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"ContentNode\",\"possibleTypes\":[{\"name\":\"MediaItem\"},{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"UNION\",\"name\":\"CommentAuthorUnion\",\"possibleTypes\":[{\"name\":\"User\"},{\"name\":\"CommentAuthor\"}]},{\"kind\":\"UNION\",\"name\":\"PostObjectUnion\",\"possibleTypes\":[{\"name\":\"Post\"},{\"name\":\"Page\"},{\"name\":\"MediaItem\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithTitle\",\"possibleTypes\":[{\"name\":\"MediaItem\"},{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithContentEditor\",\"possibleTypes\":[{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithAuthor\",\"possibleTypes\":[{\"name\":\"MediaItem\"},{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithFeaturedImage\",\"possibleTypes\":[{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithExcerpt\",\"possibleTypes\":[{\"name\":\"Post\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithComments\",\"possibleTypes\":[{\"name\":\"MediaItem\"},{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithTrackbacks\",\"possibleTypes\":[{\"name\":\"Post\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithRevisions\",\"possibleTypes\":[{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"UNION\",\"name\":\"TermObjectUnion\",\"possibleTypes\":[{\"name\":\"Category\"},{\"name\":\"Tag\"},{\"name\":\"PostFormat\"},{\"name\":\"ProductType\"},{\"name\":\"VisibleProduct\"},{\"name\":\"ProductCategory\"},{\"name\":\"ProductTag\"},{\"name\":\"ShippingClass\"},{\"name\":\"PaColor\"},{\"name\":\"PaSize\"}]},{\"kind\":\"INTERFACE\",\"name\":\"Product\",\"possibleTypes\":[{\"name\":\"VariableProduct\"},{\"name\":\"ExternalProduct\"},{\"name\":\"GroupProduct\"},{\"name\":\"SimpleProduct\"}]},{\"kind\":\"INTERFACE\",\"name\":\"ProductAttribute\",\"possibleTypes\":[{\"name\":\"GlobalProductAttribute\"},{\"name\":\"LocalProductAttribute\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithPageAttributes\",\"possibleTypes\":[{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"HierarchicalContentNode\",\"possibleTypes\":[{\"name\":\"MediaItem\"},{\"name\":\"Page\"}]},{\"kind\":\"UNION\",\"name\":\"ContentRevisionUnion\",\"possibleTypes\":[{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"UNION\",\"name\":\"MenuItemObjectUnion\",\"possibleTypes\":[{\"name\":\"Post\"},{\"name\":\"Page\"},{\"name\":\"Category\"},{\"name\":\"Tag\"},{\"name\":\"ProductCategory\"},{\"name\":\"ProductTag\"},{\"name\":\"MenuItem\"}]}]}}");
-
-/***/ }),
-
-/***/ "b0oO":
+/***/ "./components/Footerdata.js":
+/*!**********************************!*\
+  !*** ./components/Footerdata.js ***!
+  \**********************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("F5FC");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Navdata__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("cLLZ");
-
-
-
-const Header = () => {
-  return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div", {
-    children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_Navdata__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], {})
-  });
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (Header);
-
-/***/ }),
-
-/***/ "cDcd":
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-
-/***/ "cDf5":
-/***/ (function(module, exports) {
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    module.exports = _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    module.exports = _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-module.exports = _typeof;
-
-/***/ }),
-
-/***/ "cLLZ":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("F5FC");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("lFrT");
-/* harmony import */ var react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("6rvL");
-/* harmony import */ var react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_bootstrap_NavDropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("VPFm");
-/* harmony import */ var react_bootstrap_NavDropdown__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_NavDropdown__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("2S/i");
-/* harmony import */ var react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_bootstrap_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("djS3");
-/* harmony import */ var react_bootstrap_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_FormControl__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("vVTy");
-/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("REKQ");
-/* harmony import */ var react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("cDcd");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("YFqc");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_9__);
-
-
-
-
-
-
-
-
-
-
-
-
-const Navdata = () => {
-  return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    bg: "light",
-    expand: "lg",
-    className: "header_area",
-    children: [/*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1___default.a.Brand, {
-      href: "#home",
-      className: "navbar-brand logo_h",
-      children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_7___default.a, {
-        className: "imglogo",
-        src: "http://localhost/wordpress/wp-content/uploads/2020/11/cropped-logo.png"
-      })
-    }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1___default.a.Toggle, {
-      "aria-controls": "basic-navbar-nav"
-    }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1___default.a.Collapse, {
-      id: "basic-navbar-nav",
-      children: [/*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a, {
-        className: "mr-auto",
-        children: [/*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
-          href: "/",
-          className: "nav-item",
-          children: "HOME"
-        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
-          href: "/Shop",
-          className: "nav-item",
-          children: "SHOP"
-        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
-          href: "/gallery",
-          className: "nav-item",
-          children: "GALLERY"
-        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
-          href: "/About",
-          className: "nav-item",
-          children: "ABOUT US"
-        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
-          href: "/singleproduct",
-          className: "nav-item",
-          children: "CART"
-        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
-          href: "#link",
-          className: "nav-item",
-          children: "WISHLIST"
-        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
-          href: "#link",
-          className: "nav-item",
-          children: "MY ACCOUNT"
-        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
-          href: "#link",
-          className: "nav-item",
-          children: "LOGOUT"
-        })]
-      }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_4___default.a, {
-        inline: true,
-        children: [/*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_bootstrap_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
-          type: "text",
-          placeholder: "Search",
-          className: "form-control"
-        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6___default.a, {
-          variant: "secondary",
-          children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("i", {
-            className: "ti ti-search"
-          })
-        })]
-      })]
-    })]
-  });
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (Navdata);
-
-/***/ }),
-
-/***/ "cTJO":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireWildcard = __webpack_require__("284h");
-
-exports.__esModule = true;
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(__webpack_require__("cDcd"));
-
-var _router = __webpack_require__("elyg");
-
-var _router2 = __webpack_require__("nOHt");
-
-let cachedObserver;
-const listeners = new Map();
-const IntersectionObserver = false ? undefined : null;
-const prefetched = {};
-
-function getObserver() {
-  // Return shared instance of IntersectionObserver if already created
-  if (cachedObserver) {
-    return cachedObserver;
-  } // Only create shared IntersectionObserver if supported in browser
-
-
-  if (!IntersectionObserver) {
-    return undefined;
-  }
-
-  return cachedObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!listeners.has(entry.target)) {
-        return;
-      }
-
-      const cb = listeners.get(entry.target);
-
-      if (entry.isIntersecting || entry.intersectionRatio > 0) {
-        cachedObserver.unobserve(entry.target);
-        listeners.delete(entry.target);
-        cb();
-      }
-    });
-  }, {
-    rootMargin: '200px'
-  });
-}
-
-const listenToIntersections = (el, cb) => {
-  const observer = getObserver();
-
-  if (!observer) {
-    return () => {};
-  }
-
-  observer.observe(el);
-  listeners.set(el, cb);
-  return () => {
-    try {
-      observer.unobserve(el);
-    } catch (err) {
-      console.error(err);
-    }
-
-    listeners.delete(el);
-  };
-};
-
-function prefetch(router, href, as, options) {
-  if (true) return;
-  if (!(0, _router.isLocalURL)(href)) return; // Prefetch the JSON page if asked (only in the client)
-  // We need to handle a prefetch error here since we may be
-  // loading with priority which can reject but we don't
-  // want to force navigation since this is only a prefetch
-
-  router.prefetch(href, as, options).catch(err => {
-    if (false) {}
-  }); // Join on an invalid URI character
-
-  prefetched[href + '%' + as] = true;
-}
-
-function isModifiedEvent(event) {
-  const {
-    target
-  } = event.currentTarget;
-  return target && target !== '_self' || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || // triggers resource download
-  event.nativeEvent && event.nativeEvent.which === 2;
-}
-
-function linkClicked(e, router, href, as, replace, shallow, scroll, locale) {
-  const {
-    nodeName
-  } = e.currentTarget;
-
-  if (nodeName === 'A' && (isModifiedEvent(e) || !(0, _router.isLocalURL)(href))) {
-    // ignore click for browser’s default behavior
-    return;
-  }
-
-  e.preventDefault(); //  avoid scroll for urls with anchor refs
-
-  if (scroll == null) {
-    scroll = as.indexOf('#') < 0;
-  } // replace state instead of push if prop is present
-
-
-  router[replace ? 'replace' : 'push'](href, as, {
-    shallow,
-    locale
-  }).then(success => {
-    if (!success) return;
-
-    if (scroll) {
-      window.scrollTo(0, 0);
-      document.body.focus();
-    }
-  });
-}
-
-function Link(props) {
-  if (false) {}
-
-  const p = props.prefetch !== false;
-
-  const [childElm, setChildElm] = _react.default.useState();
-
-  const router = (0, _router2.useRouter)();
-  const pathname = router && router.pathname || '/';
-
-  const {
-    href,
-    as
-  } = _react.default.useMemo(() => {
-    const [resolvedHref, resolvedAs] = (0, _router.resolveHref)(pathname, props.href, true);
-    return {
-      href: resolvedHref,
-      as: props.as ? (0, _router.resolveHref)(pathname, props.as) : resolvedAs || resolvedHref
-    };
-  }, [pathname, props.href, props.as]);
-
-  _react.default.useEffect(() => {
-    if (p && IntersectionObserver && childElm && childElm.tagName && (0, _router.isLocalURL)(href)) {
-      // Join on an invalid URI character
-      const isPrefetched = prefetched[href + '%' + as];
-
-      if (!isPrefetched) {
-        return listenToIntersections(childElm, () => {
-          prefetch(router, href, as);
-        });
-      }
-    }
-  }, [p, childElm, href, as, router]);
-
-  let {
-    children,
-    replace,
-    shallow,
-    scroll,
-    locale
-  } = props; // Deprecated. Warning shown by propType check. If the children provided is a string (<Link>example</Link>) we wrap it in an <a> tag
-
-  if (typeof children === 'string') {
-    children = /*#__PURE__*/_react.default.createElement("a", null, children);
-  } // This will return the first child, if multiple are provided it will throw an error
-
-
-  const child = _react.Children.only(children);
-
-  const childProps = {
-    ref: el => {
-      if (el) setChildElm(el);
-
-      if (child && typeof child === 'object' && child.ref) {
-        if (typeof child.ref === 'function') child.ref(el);else if (typeof child.ref === 'object') {
-          child.ref.current = el;
-        }
-      }
-    },
-    onClick: e => {
-      if (child.props && typeof child.props.onClick === 'function') {
-        child.props.onClick(e);
-      }
-
-      if (!e.defaultPrevented) {
-        linkClicked(e, router, href, as, replace, shallow, scroll, locale);
-      }
-    }
-  };
-
-  if (p) {
-    childProps.onMouseEnter = e => {
-      if (!(0, _router.isLocalURL)(href)) return;
-
-      if (child.props && typeof child.props.onMouseEnter === 'function') {
-        child.props.onMouseEnter(e);
-      }
-
-      prefetch(router, href, as, {
-        priority: true
-      });
-    };
-  } // If child is an <a> tag and doesn't have a href attribute, or if the 'passHref' property is
-  // defined, we specify the current 'href', so that repetition is not needed by the user
-
-
-  if (props.passHref || child.type === 'a' && !('href' in child.props)) {
-    childProps.href = (0, _router.addBasePath)((0, _router.addLocale)(as, typeof locale !== 'undefined' ? locale : router && router.locale, router && router.defaultLocale));
-  }
-
-  return /*#__PURE__*/_react.default.cloneElement(child, childProps);
-}
-
-var _default = Link;
-exports.default = _default;
-
-/***/ }),
-
-/***/ "dZ6Y":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = mitt;
-/*
-MIT License
-Copyright (c) Jason Miller (https://jasonformat.com/)
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
-// This file is based on https://github.com/developit/mitt/blob/v1.1.3/src/index.js
-// It's been edited for the needs of this script
-// See the LICENSE at the top of the file
-
-function mitt() {
-  const all = Object.create(null);
-  return {
-    on(type, handler) {
-      ;
-      (all[type] || (all[type] = [])).push(handler);
-    },
-
-    off(type, handler) {
-      if (all[type]) {
-        all[type].splice(all[type].indexOf(handler) >>> 0, 1);
-      }
-    },
-
-    emit(type, ...evts) {
-      // eslint-disable-next-line array-callback-return
-      ;
-      (all[type] || []).slice().map(handler => {
-        handler(...evts);
-      });
-    }
-
-  };
-}
-
-/***/ }),
-
-/***/ "djS3":
-/***/ (function(module, exports) {
-
-module.exports = require("react-bootstrap/FormControl");
-
-/***/ }),
-
-/***/ "dmCw":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-
-// EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__("F5FC");
-
-// EXTERNAL MODULE: ./styles/Style.css
-var Style = __webpack_require__("4+wR");
-
-// EXTERNAL MODULE: ./components/Footer.js + 1 modules
-var Footer = __webpack_require__("8lYe");
-
-// EXTERNAL MODULE: ./components/Footerdata.js
-var Footerdata = __webpack_require__("jRcx");
-
-// EXTERNAL MODULE: ./components/Header.js
-var Header = __webpack_require__("b0oO");
-
-// EXTERNAL MODULE: external "react-bootstrap/Container"
-var Container_ = __webpack_require__("vDuQ");
-
-// EXTERNAL MODULE: external "react-bootstrap/Row"
-var Row_ = __webpack_require__("flur");
-
-// EXTERNAL MODULE: external "react-bootstrap/Col"
-var Col_ = __webpack_require__("tfHl");
-
-// EXTERNAL MODULE: external "react-bootstrap/Image"
-var Image_ = __webpack_require__("REKQ");
-var Image_default = /*#__PURE__*/__webpack_require__.n(Image_);
-
-// CONCATENATED MODULE: ./components/gallery/Gallery.js
-
-
-
-
-
-
-const Gallery = prop => {
-  const {
-    mediaItem
-  } = prop;
-  return /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-    className: "col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12",
-    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Image_default.a, {
-        src: mediaItem.image.sourceUrl,
-        thumbnail: true
-      })
-    })
-  });
-};
-
-/* harmony default export */ var gallery_Gallery = (Gallery);
-// CONCATENATED MODULE: ./components/gallery/Layout.js
-
-
-
-
-
-
-
-
-const Layout = prop => {
-  return /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-    children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("title", {
-      children: "Gallery"
-    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("link", {
-      rel: "stylesheet",
-      href: "https://unpkg.com/@icon/themify-icons/themify-icons.css"
-    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("link", {
-      rel: "stylesheet",
-      href: "https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Header["a" /* default */], {}), prop.children, /*#__PURE__*/Object(jsx_runtime_["jsx"])(Footerdata["a" /* default */], {}), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Footer["a" /* default */], {})]
-  });
-};
-
-/* harmony default export */ var gallery_Layout = (Layout);
-// EXTERNAL MODULE: ./components/ApolloClient.js + 1 modules
-var ApolloClient = __webpack_require__("xEei");
-
-// EXTERNAL MODULE: external "graphql-tag"
-var external_graphql_tag_ = __webpack_require__("txk1");
-var external_graphql_tag_default = /*#__PURE__*/__webpack_require__.n(external_graphql_tag_);
-
-// CONCATENATED MODULE: ./queries/mediaitems.js
-
-const MEDIA_LIST = external_graphql_tag_default.a`query {
-  products {
-    nodes {
-      image {
-        id
-        slug
-        sourceUrl
-      }
-    }
-  }
-}`;
-/* harmony default export */ var mediaitems = (MEDIA_LIST);
-// CONCATENATED MODULE: ./pages/gallery.js
-
-
-
-
-
-
-const gallery = props => {
-  console.warn(props);
-  const {
-    mediaItems
-  } = props;
-  return /*#__PURE__*/Object(jsx_runtime_["jsx"])(gallery_Layout, {
-    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-      className: "product-container",
-      children: mediaItems.length ? mediaItems.map(mediaItem => /*#__PURE__*/Object(jsx_runtime_["jsx"])(gallery_Gallery, {
-        mediaItem: mediaItem
-      }, mediaItem.id)) : ''
-    })
-  });
-};
-
-gallery.getInitialProps = async () => {
-  const result = await ApolloClient["a" /* default */].query({
-    query: mediaitems
-  });
-  return {
-    mediaItems: result.data.products.nodes
-  };
-};
-
-/* harmony default export */ var pages_gallery = __webpack_exports__["default"] = (gallery);
-
-/***/ }),
-
-/***/ "elyg":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.addLocale = addLocale;
-exports.delLocale = delLocale;
-exports.hasBasePath = hasBasePath;
-exports.addBasePath = addBasePath;
-exports.delBasePath = delBasePath;
-exports.isLocalURL = isLocalURL;
-exports.interpolateAs = interpolateAs;
-exports.resolveHref = resolveHref;
-exports.markLoadingError = markLoadingError;
-exports.default = void 0;
-
-var _normalizeTrailingSlash = __webpack_require__("X24+");
-
-var _denormalizePagePath = __webpack_require__("wkBG");
-
-var _mitt = _interopRequireDefault(__webpack_require__("dZ6Y"));
-
-var _utils = __webpack_require__("g/15");
-
-var _isDynamic = __webpack_require__("/jkW");
-
-var _parseRelativeUrl = __webpack_require__("hS4m");
-
-var _querystring = __webpack_require__("3WeD");
-
-var _resolveRewrites = _interopRequireDefault(__webpack_require__("S3md"));
-
-var _routeMatcher = __webpack_require__("gguc");
-
-var _routeRegex = __webpack_require__("YTqd");
-
-var _escapePathDelimiters = _interopRequireDefault(__webpack_require__("fcRV"));
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    default: obj
-  };
-}
-/* global __NEXT_DATA__ */
-// tslint:disable:no-console
-
-
-const basePath =  false || '';
-
-function buildCancellationError() {
-  return Object.assign(new Error('Route Cancelled'), {
-    cancelled: true
-  });
-}
-
-function addPathPrefix(path, prefix) {
-  return prefix && path.startsWith('/') ? path === '/' ? (0, _normalizeTrailingSlash.normalizePathTrailingSlash)(prefix) : `${prefix}${path}` : path;
-}
-
-function addLocale(path, locale, defaultLocale) {
-  if (false) {}
-
-  return path;
-}
-
-function delLocale(path, locale) {
-  if (false) {}
-
-  return path;
-}
-
-function hasBasePath(path) {
-  return path === basePath || path.startsWith(basePath + '/');
-}
-
-function addBasePath(path) {
-  // we only add the basepath on relative urls
-  return addPathPrefix(path, basePath);
-}
-
-function delBasePath(path) {
-  return path.slice(basePath.length) || '/';
-}
-/**
-* Detects whether a given url is routable by the Next.js router (browser only).
-*/
-
-
-function isLocalURL(url) {
-  if (url.startsWith('/')) return true;
-
-  try {
-    // absolute urls can be local if they are on the same origin
-    const locationOrigin = (0, _utils.getLocationOrigin)();
-    const resolved = new URL(url, locationOrigin);
-    return resolved.origin === locationOrigin && hasBasePath(resolved.pathname);
-  } catch (_) {
-    return false;
-  }
-}
-
-function interpolateAs(route, asPathname, query) {
-  let interpolatedRoute = '';
-  const dynamicRegex = (0, _routeRegex.getRouteRegex)(route);
-  const dynamicGroups = dynamicRegex.groups;
-  const dynamicMatches = // Try to match the dynamic route against the asPath
-  (asPathname !== route ? (0, _routeMatcher.getRouteMatcher)(dynamicRegex)(asPathname) : '') || // Fall back to reading the values from the href
-  // TODO: should this take priority; also need to change in the router.
-  query;
-  interpolatedRoute = route;
-  const params = Object.keys(dynamicGroups);
-
-  if (!params.every(param => {
-    let value = dynamicMatches[param] || '';
-    const {
-      repeat,
-      optional
-    } = dynamicGroups[param]; // support single-level catch-all
-    // TODO: more robust handling for user-error (passing `/`)
-
-    let replaced = `[${repeat ? '...' : ''}${param}]`;
-
-    if (optional) {
-      replaced = `${!value ? '/' : ''}[${replaced}]`;
-    }
-
-    if (repeat && !Array.isArray(value)) value = [value];
-    return (optional || param in dynamicMatches) && ( // Interpolate group into data URL if present
-    interpolatedRoute = interpolatedRoute.replace(replaced, repeat ? value.map(_escapePathDelimiters.default).join('/') : (0, _escapePathDelimiters.default)(value)) || '/');
-  })) {
-    interpolatedRoute = ''; // did not satisfy all requirements
-    // n.b. We ignore this error because we handle warning for this case in
-    // development in the `<Link>` component directly.
-  }
-
-  return {
-    params,
-    result: interpolatedRoute
-  };
-}
-
-function omitParmsFromQuery(query, params) {
-  const filteredQuery = {};
-  Object.keys(query).forEach(key => {
-    if (!params.includes(key)) {
-      filteredQuery[key] = query[key];
-    }
-  });
-  return filteredQuery;
-}
-/**
-* Resolves a given hyperlink with a certain router state (basePath not included).
-* Preserves absolute urls.
-*/
-
-
-function resolveHref(currentPath, href, resolveAs) {
-  // we use a dummy base url for relative urls
-  const base = new URL(currentPath, 'http://n');
-  const urlAsString = typeof href === 'string' ? href : (0, _utils.formatWithValidation)(href);
-
-  try {
-    const finalUrl = new URL(urlAsString, base);
-    finalUrl.pathname = (0, _normalizeTrailingSlash.normalizePathTrailingSlash)(finalUrl.pathname);
-    let interpolatedAs = '';
-
-    if ((0, _isDynamic.isDynamicRoute)(finalUrl.pathname) && finalUrl.searchParams && resolveAs) {
-      const query = (0, _querystring.searchParamsToUrlQuery)(finalUrl.searchParams);
-      const {
-        result,
-        params
-      } = interpolateAs(finalUrl.pathname, finalUrl.pathname, query);
-
-      if (result) {
-        interpolatedAs = (0, _utils.formatWithValidation)({
-          pathname: result,
-          hash: finalUrl.hash,
-          query: omitParmsFromQuery(query, params)
-        });
-      }
-    } // if the origin didn't change, it means we received a relative href
-
-
-    const resolvedHref = finalUrl.origin === base.origin ? finalUrl.href.slice(finalUrl.origin.length) : finalUrl.href;
-    return resolveAs ? [resolvedHref, interpolatedAs || resolvedHref] : resolvedHref;
-  } catch (_) {
-    return resolveAs ? [urlAsString] : urlAsString;
-  }
-}
-
-const PAGE_LOAD_ERROR = Symbol('PAGE_LOAD_ERROR');
-
-function markLoadingError(err) {
-  return Object.defineProperty(err, PAGE_LOAD_ERROR, {});
-}
-
-function prepareUrlAs(router, url, as) {
-  // If url and as provided as an object representation,
-  // we'll format them into the string version here.
-  return {
-    url: addBasePath(resolveHref(router.pathname, url)),
-    as: as ? addBasePath(resolveHref(router.pathname, as)) : as
-  };
-}
-
-const manualScrollRestoration =  false && false;
-const SSG_DATA_NOT_FOUND_ERROR = 'SSG Data NOT_FOUND';
-
-function fetchRetry(url, attempts) {
-  return fetch(url, {
-    // Cookies are required to be present for Next.js' SSG "Preview Mode".
-    // Cookies may also be required for `getServerSideProps`.
-    //
-    // > `fetch` won’t send cookies, unless you set the credentials init
-    // > option.
-    // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-    //
-    // > For maximum browser compatibility when it comes to sending &
-    // > receiving cookies, always supply the `credentials: 'same-origin'`
-    // > option instead of relying on the default.
-    // https://github.com/github/fetch#caveats
-    credentials: 'same-origin'
-  }).then(res => {
-    if (!res.ok) {
-      if (attempts > 1 && res.status >= 500) {
-        return fetchRetry(url, attempts - 1);
-      }
-
-      if (res.status === 404) {
-        // TODO: handle reloading in development from fallback returning 200
-        // to on-demand-entry-handler causing it to reload periodically
-        throw new Error(SSG_DATA_NOT_FOUND_ERROR);
-      }
-
-      throw new Error(`Failed to load static props`);
-    }
-
-    return res.json();
-  });
-}
-
-function fetchNextData(dataHref, isServerRender) {
-  return fetchRetry(dataHref, isServerRender ? 3 : 1).catch(err => {
-    // We should only trigger a server-side transition if this was caused
-    // on a client-side transition. Otherwise, we'd get into an infinite
-    // loop.
-    if (!isServerRender) {
-      markLoadingError(err);
-    }
-
-    throw err;
-  });
-}
-
-class Router {
-  /**
-  * Map of all components loaded in `Router`
-  */
-  // Static Data Cache
-  constructor(_pathname, _query, _as, {
-    initialProps,
-    pageLoader,
-    App,
-    wrapApp,
-    Component,
-    initialStyleSheets,
-    err,
-    subscription,
-    isFallback,
-    locale,
-    locales,
-    defaultLocale
-  }) {
-    this.route = void 0;
-    this.pathname = void 0;
-    this.query = void 0;
-    this.asPath = void 0;
-    this.basePath = void 0;
-    this.components = void 0;
-    this.sdc = {};
-    this.sub = void 0;
-    this.clc = void 0;
-    this.pageLoader = void 0;
-    this._bps = void 0;
-    this.events = void 0;
-    this._wrapApp = void 0;
-    this.isSsr = void 0;
-    this.isFallback = void 0;
-    this._inFlightRoute = void 0;
-    this._shallow = void 0;
-    this.locale = void 0;
-    this.locales = void 0;
-    this.defaultLocale = void 0;
-
-    this.onPopState = e => {
-      const state = e.state;
-
-      if (!state) {
-        // We get state as undefined for two reasons.
-        //  1. With older safari (< 8) and older chrome (< 34)
-        //  2. When the URL changed with #
-        //
-        // In the both cases, we don't need to proceed and change the route.
-        // (as it's already changed)
-        // But we can simply replace the state with the new changes.
-        // Actually, for (1) we don't need to nothing. But it's hard to detect that event.
-        // So, doing the following for (1) does no harm.
-        const {
-          pathname,
-          query
-        } = this;
-        this.changeState('replaceState', (0, _utils.formatWithValidation)({
-          pathname: addBasePath(pathname),
-          query
-        }), (0, _utils.getURL)());
-        return;
-      }
-
-      if (!state.__N) {
-        return;
-      }
-
-      const {
-        url,
-        as,
-        options
-      } = state;
-      const {
-        pathname
-      } = (0, _parseRelativeUrl.parseRelativeUrl)(url); // Make sure we don't re-render on initial load,
-      // can be caused by navigating back from an external site
-
-      if (this.isSsr && as === this.asPath && pathname === this.pathname) {
-        return;
-      } // If the downstream application returns falsy, return.
-      // They will then be responsible for handling the event.
-
-
-      if (this._bps && !this._bps(state)) {
-        return;
-      }
-
-      this.change('replaceState', url, as, Object.assign({}, options, {
-        shallow: options.shallow && this._shallow,
-        locale: options.locale || this.defaultLocale
-      }));
-    }; // represents the current component key
-
-
-    this.route = (0, _normalizeTrailingSlash.removePathTrailingSlash)(_pathname); // set up the component cache (by route keys)
-
-    this.components = {}; // We should not keep the cache, if there's an error
-    // Otherwise, this cause issues when when going back and
-    // come again to the errored page.
-
-    if (_pathname !== '/_error') {
-      this.components[this.route] = {
-        Component,
-        styleSheets: initialStyleSheets,
-        props: initialProps,
-        err,
-        __N_SSG: initialProps && initialProps.__N_SSG,
-        __N_SSP: initialProps && initialProps.__N_SSP
-      };
-    }
-
-    this.components['/_app'] = {
-      Component: App,
-      styleSheets: [
-        /* /_app does not need its stylesheets managed */
-      ]
-    }; // Backwards compat for Router.router.events
-    // TODO: Should be remove the following major version as it was never documented
-
-    this.events = Router.events;
-    this.pageLoader = pageLoader;
-    this.pathname = _pathname;
-    this.query = _query; // if auto prerendered and dynamic route wait to update asPath
-    // until after mount to prevent hydration mismatch
-
-    this.asPath = // @ts-ignore this is temporarily global (attached to window)
-    (0, _isDynamic.isDynamicRoute)(_pathname) && __NEXT_DATA__.autoExport ? _pathname : _as;
-    this.basePath = basePath;
-    this.sub = subscription;
-    this.clc = null;
-    this._wrapApp = wrapApp; // make sure to ignore extra popState in safari on navigating
-    // back from external site
-
-    this.isSsr = true;
-    this.isFallback = isFallback;
-
-    if (false) {}
-
-    if (false) {}
-  }
-
-  reload() {
-    window.location.reload();
-  }
-  /**
-  * Go back in history
-  */
-
-
-  back() {
-    window.history.back();
-  }
-  /**
-  * Performs a `pushState` with arguments
-  * @param url of the route
-  * @param as masks `url` for the browser
-  * @param options object you can define `shallow` and other options
-  */
-
-
-  push(url, as = url, options = {}) {
-    ;
-    ({
-      url,
-      as
-    } = prepareUrlAs(this, url, as));
-    return this.change('pushState', url, as, options);
-  }
-  /**
-  * Performs a `replaceState` with arguments
-  * @param url of the route
-  * @param as masks `url` for the browser
-  * @param options object you can define `shallow` and other options
-  */
-
-
-  replace(url, as = url, options = {}) {
-    ;
-    ({
-      url,
-      as
-    } = prepareUrlAs(this, url, as));
-    return this.change('replaceState', url, as, options);
-  }
-
-  async change(method, url, as, options) {
-    if (!isLocalURL(url)) {
-      window.location.href = url;
-      return false;
-    }
-
-    if (false) {}
-
-    if (!options._h) {
-      this.isSsr = false;
-    } // marking route changes as a navigation start entry
-
-
-    if (_utils.ST) {
-      performance.mark('routeChange');
-    }
-
-    if (this._inFlightRoute) {
-      this.abortComponentLoad(this._inFlightRoute);
-    }
-
-    as = addLocale(as, options.locale, this.defaultLocale);
-    const cleanedAs = delLocale(hasBasePath(as) ? delBasePath(as) : as, this.locale);
-    this._inFlightRoute = as; // If the url change is only related to a hash change
-    // We should not proceed. We should only change the state.
-    // WARNING: `_h` is an internal option for handing Next.js client-side
-    // hydration. Your app should _never_ use this property. It may change at
-    // any time without notice.
-
-    if (!options._h && this.onlyAHashChange(cleanedAs)) {
-      this.asPath = cleanedAs;
-      Router.events.emit('hashChangeStart', as); // TODO: do we need the resolved href when only a hash change?
-
-      this.changeState(method, url, as, options);
-      this.scrollToHash(cleanedAs);
-      this.notify(this.components[this.route]);
-      Router.events.emit('hashChangeComplete', as);
-      return true;
-    } // The build manifest needs to be loaded before auto-static dynamic pages
-    // get their query parameters to allow ensuring they can be parsed properly
-    // when rewritten to
-
-
-    const pages = await this.pageLoader.getPageList();
-    const {
-      __rewrites: rewrites
-    } = await this.pageLoader.promisedBuildManifest;
-    let parsed = (0, _parseRelativeUrl.parseRelativeUrl)(url);
-    let {
-      pathname,
-      query
-    } = parsed;
-    parsed = this._resolveHref(parsed, pages);
-
-    if (parsed.pathname !== pathname) {
-      pathname = parsed.pathname;
-      url = (0, _utils.formatWithValidation)(parsed);
-    } // url and as should always be prefixed with basePath by this
-    // point by either next/link or router.push/replace so strip the
-    // basePath from the pathname to match the pages dir 1-to-1
-
-
-    pathname = pathname ? (0, _normalizeTrailingSlash.removePathTrailingSlash)(delBasePath(pathname)) : pathname; // If asked to change the current URL we should reload the current page
-    // (not location.reload() but reload getInitialProps and other Next.js stuffs)
-    // We also need to set the method = replaceState always
-    // as this should not go into the history (That's how browsers work)
-    // We should compare the new asPath to the current asPath, not the url
-
-    if (!this.urlIsNew(cleanedAs)) {
-      method = 'replaceState';
-    }
-
-    let route = (0, _normalizeTrailingSlash.removePathTrailingSlash)(pathname);
-    const {
-      shallow = false
-    } = options; // we need to resolve the as value using rewrites for dynamic SSG
-    // pages to allow building the data URL correctly
-
-    let resolvedAs = as;
-
-    if (false) {}
-
-    resolvedAs = delLocale(delBasePath(resolvedAs), this.locale);
-
-    if ((0, _isDynamic.isDynamicRoute)(route)) {
-      const parsedAs = (0, _parseRelativeUrl.parseRelativeUrl)(resolvedAs);
-      const asPathname = parsedAs.pathname;
-      const routeRegex = (0, _routeRegex.getRouteRegex)(route);
-      const routeMatch = (0, _routeMatcher.getRouteMatcher)(routeRegex)(asPathname);
-      const shouldInterpolate = route === asPathname;
-      const interpolatedAs = shouldInterpolate ? interpolateAs(route, asPathname, query) : {};
-
-      if (!routeMatch || shouldInterpolate && !interpolatedAs.result) {
-        const missingParams = Object.keys(routeRegex.groups).filter(param => !query[param]);
-
-        if (missingParams.length > 0) {
-          if (false) {}
-
-          throw new Error((shouldInterpolate ? `The provided \`href\` (${url}) value is missing query values (${missingParams.join(', ')}) to be interpolated properly. ` : `The provided \`as\` value (${asPathname}) is incompatible with the \`href\` value (${route}). `) + `Read more: https://err.sh/vercel/next.js/${shouldInterpolate ? 'href-interpolation-failed' : 'incompatible-href-as'}`);
-        }
-      } else if (shouldInterpolate) {
-        as = (0, _utils.formatWithValidation)(Object.assign({}, parsedAs, {
-          pathname: interpolatedAs.result,
-          query: omitParmsFromQuery(query, interpolatedAs.params)
-        }));
-      } else {
-        // Merge params into `query`, overwriting any specified in search
-        Object.assign(query, routeMatch);
-      }
-    }
-
-    Router.events.emit('routeChangeStart', as);
-
-    try {
-      const routeInfo = await this.getRouteInfo(route, pathname, query, as, shallow);
-      let {
-        error,
-        props,
-        __N_SSG,
-        __N_SSP
-      } = routeInfo; // handle redirect on client-transition
-
-      if ((__N_SSG || __N_SSP) && props && props.pageProps && props.pageProps.__N_REDIRECT) {
-        const destination = props.pageProps.__N_REDIRECT; // check if destination is internal (resolves to a page) and attempt
-        // client-navigation if it is falling back to hard navigation if
-        // it's not
-
-        if (destination.startsWith('/')) {
-          const parsedHref = (0, _parseRelativeUrl.parseRelativeUrl)(destination);
-
-          this._resolveHref(parsedHref, pages);
-
-          if (pages.includes(parsedHref.pathname)) {
-            return this.change(method, destination, destination, options);
-          }
-        }
-
-        window.location.href = destination;
-        return new Promise(() => {});
-      }
-
-      Router.events.emit('beforeHistoryChange', as);
-      this.changeState(method, url, addLocale(as, options.locale, this.defaultLocale), options);
-
-      if (false) {}
-
-      await this.set(route, pathname, query, cleanedAs, routeInfo).catch(e => {
-        if (e.cancelled) error = error || e;else throw e;
-      });
-
-      if (error) {
-        Router.events.emit('routeChangeError', error, cleanedAs);
-        throw error;
-      }
-
-      if (false) {}
-
-      Router.events.emit('routeChangeComplete', as);
-      return true;
-    } catch (err) {
-      if (err.cancelled) {
-        return false;
-      }
-
-      throw err;
-    }
-  }
-
-  changeState(method, url, as, options = {}) {
-    if (false) {}
-
-    if (method !== 'pushState' || (0, _utils.getURL)() !== as) {
-      this._shallow = options.shallow;
-      window.history[method]({
-        url,
-        as,
-        options,
-        __N: true
-      }, // Most browsers currently ignores this parameter, although they may use it in the future.
-      // Passing the empty string here should be safe against future changes to the method.
-      // https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState
-      '', as);
-    }
-  }
-
-  async handleRouteInfoError(err, pathname, query, as, loadErrorFail) {
-    if (err.cancelled) {
-      // bubble up cancellation errors
-      throw err;
-    }
-
-    if (PAGE_LOAD_ERROR in err || loadErrorFail) {
-      Router.events.emit('routeChangeError', err, as); // If we can't load the page it could be one of following reasons
-      //  1. Page doesn't exists
-      //  2. Page does exist in a different zone
-      //  3. Internal error while loading the page
-      // So, doing a hard reload is the proper way to deal with this.
-
-      window.location.href = as; // Changing the URL doesn't block executing the current code path.
-      // So let's throw a cancellation error stop the routing logic.
-
-      throw buildCancellationError();
-    }
-
-    try {
-      let Component;
-      let styleSheets;
-      let props;
-      const ssg404 = err.message === SSG_DATA_NOT_FOUND_ERROR;
-
-      if (ssg404) {
-        try {
-          let mod;
-          ({
-            page: Component,
-            styleSheets,
-            mod
-          } = await this.fetchComponent('/404')); // TODO: should we tolerate these props missing and still render the
-          // page instead of falling back to _error?
-
-          if (mod && mod.__N_SSG) {
-            props = await this._getStaticData(this.pageLoader.getDataHref('/404', '/404', true, this.locale));
-          }
-        } catch (_err) {// non-fatal fallback to _error
-        }
-      }
-
-      if (typeof Component === 'undefined' || typeof styleSheets === 'undefined') {
-        ;
-        ({
-          page: Component,
-          styleSheets
-        } = await this.fetchComponent('/_error'));
-      }
-
-      const routeInfo = {
-        props,
-        Component,
-        styleSheets,
-        err: ssg404 ? undefined : err,
-        error: ssg404 ? undefined : err
-      };
-
-      if (!routeInfo.props) {
-        try {
-          routeInfo.props = await this.getInitialProps(Component, {
-            err,
-            pathname,
-            query
-          });
-        } catch (gipErr) {
-          console.error('Error in error page `getInitialProps`: ', gipErr);
-          routeInfo.props = {};
-        }
-      }
-
-      return routeInfo;
-    } catch (routeInfoErr) {
-      return this.handleRouteInfoError(routeInfoErr, pathname, query, as, true);
-    }
-  }
-
-  async getRouteInfo(route, pathname, query, as, shallow = false) {
-    try {
-      const cachedRouteInfo = this.components[route];
-
-      if (shallow && cachedRouteInfo && this.route === route) {
-        return cachedRouteInfo;
-      }
-
-      const routeInfo = cachedRouteInfo ? cachedRouteInfo : await this.fetchComponent(route).then(res => ({
-        Component: res.page,
-        styleSheets: res.styleSheets,
-        __N_SSG: res.mod.__N_SSG,
-        __N_SSP: res.mod.__N_SSP
-      }));
-      const {
-        Component,
-        __N_SSG,
-        __N_SSP
-      } = routeInfo;
-
-      if (false) {}
-
-      let dataHref;
-
-      if (__N_SSG || __N_SSP) {
-        dataHref = this.pageLoader.getDataHref((0, _utils.formatWithValidation)({
-          pathname,
-          query
-        }), delBasePath(as), __N_SSG, this.locale);
-      }
-
-      const props = await this._getData(() => __N_SSG ? this._getStaticData(dataHref) : __N_SSP ? this._getServerData(dataHref) : this.getInitialProps(Component, // we provide AppTree later so this needs to be `any`
-      {
-        pathname,
-        query,
-        asPath: as
-      }));
-      routeInfo.props = props;
-      this.components[route] = routeInfo;
-      return routeInfo;
-    } catch (err) {
-      return this.handleRouteInfoError(err, pathname, query, as);
-    }
-  }
-
-  set(route, pathname, query, as, data) {
-    this.isFallback = false;
-    this.route = route;
-    this.pathname = pathname;
-    this.query = query;
-    this.asPath = as;
-    return this.notify(data);
-  }
-  /**
-  * Callback to execute before replacing router state
-  * @param cb callback to be executed
-  */
-
-
-  beforePopState(cb) {
-    this._bps = cb;
-  }
-
-  onlyAHashChange(as) {
-    if (!this.asPath) return false;
-    const [oldUrlNoHash, oldHash] = this.asPath.split('#');
-    const [newUrlNoHash, newHash] = as.split('#'); // Makes sure we scroll to the provided hash if the url/hash are the same
-
-    if (newHash && oldUrlNoHash === newUrlNoHash && oldHash === newHash) {
-      return true;
-    } // If the urls are change, there's more than a hash change
-
-
-    if (oldUrlNoHash !== newUrlNoHash) {
-      return false;
-    } // If the hash has changed, then it's a hash only change.
-    // This check is necessary to handle both the enter and
-    // leave hash === '' cases. The identity case falls through
-    // and is treated as a next reload.
-
-
-    return oldHash !== newHash;
-  }
-
-  scrollToHash(as) {
-    const [, hash] = as.split('#'); // Scroll to top if the hash is just `#` with no value
-
-    if (hash === '') {
-      window.scrollTo(0, 0);
-      return;
-    } // First we check if the element by id is found
-
-
-    const idEl = document.getElementById(hash);
-
-    if (idEl) {
-      idEl.scrollIntoView();
-      return;
-    } // If there's no element with the id, we check the `name` property
-    // To mirror browsers
-
-
-    const nameEl = document.getElementsByName(hash)[0];
-
-    if (nameEl) {
-      nameEl.scrollIntoView();
-    }
-  }
-
-  urlIsNew(asPath) {
-    return this.asPath !== asPath;
-  }
-
-  _resolveHref(parsedHref, pages, applyBasePath = true) {
-    const {
-      pathname
-    } = parsedHref;
-    const cleanPathname = (0, _normalizeTrailingSlash.removePathTrailingSlash)((0, _denormalizePagePath.denormalizePagePath)(applyBasePath ? delBasePath(pathname) : pathname));
-
-    if (cleanPathname === '/404' || cleanPathname === '/_error') {
-      return parsedHref;
-    } // handle resolving href for dynamic routes
-
-
-    if (!pages.includes(cleanPathname)) {
-      // eslint-disable-next-line array-callback-return
-      pages.some(page => {
-        if ((0, _isDynamic.isDynamicRoute)(page) && (0, _routeRegex.getRouteRegex)(page).re.test(cleanPathname)) {
-          parsedHref.pathname = applyBasePath ? addBasePath(page) : page;
-          return true;
-        }
-      });
-    }
-
-    return parsedHref;
-  }
-  /**
-  * Prefetch page code, you may wait for the data during page rendering.
-  * This feature only works in production!
-  * @param url the href of prefetched page
-  * @param asPath the as path of the prefetched page
-  */
-
-
-  async prefetch(url, asPath = url, options = {}) {
-    let parsed = (0, _parseRelativeUrl.parseRelativeUrl)(url);
-    let {
-      pathname
-    } = parsed;
-    const pages = await this.pageLoader.getPageList();
-    parsed = this._resolveHref(parsed, pages);
-
-    if (parsed.pathname !== pathname) {
-      pathname = parsed.pathname;
-      url = (0, _utils.formatWithValidation)(parsed);
-    } // Prefetch is not supported in development mode because it would trigger on-demand-entries
-
-
-    if (false) {}
-
-    const route = (0, _normalizeTrailingSlash.removePathTrailingSlash)(pathname);
-    await Promise.all([this.pageLoader.prefetchData(url, asPath, this.locale, this.defaultLocale), this.pageLoader[options.priority ? 'loadPage' : 'prefetch'](route)]);
-  }
-
-  async fetchComponent(route) {
-    let cancelled = false;
-
-    const cancel = this.clc = () => {
-      cancelled = true;
-    };
-
-    const componentResult = await this.pageLoader.loadPage(route);
-
-    if (cancelled) {
-      const error = new Error(`Abort fetching component for route: "${route}"`);
-      error.cancelled = true;
-      throw error;
-    }
-
-    if (cancel === this.clc) {
-      this.clc = null;
-    }
-
-    return componentResult;
-  }
-
-  _getData(fn) {
-    let cancelled = false;
-
-    const cancel = () => {
-      cancelled = true;
-    };
-
-    this.clc = cancel;
-    return fn().then(data => {
-      if (cancel === this.clc) {
-        this.clc = null;
-      }
-
-      if (cancelled) {
-        const err = new Error('Loading initial props cancelled');
-        err.cancelled = true;
-        throw err;
-      }
-
-      return data;
-    });
-  }
-
-  _getStaticData(dataHref) {
-    const {
-      href: cacheKey
-    } = new URL(dataHref, window.location.href);
-
-    if ( true && this.sdc[cacheKey]) {
-      return Promise.resolve(this.sdc[cacheKey]);
-    }
-
-    return fetchNextData(dataHref, this.isSsr).then(data => {
-      this.sdc[cacheKey] = data;
-      return data;
-    });
-  }
-
-  _getServerData(dataHref) {
-    return fetchNextData(dataHref, this.isSsr);
-  }
-
-  getInitialProps(Component, ctx) {
-    const {
-      Component: App
-    } = this.components['/_app'];
-
-    const AppTree = this._wrapApp(App);
-
-    ctx.AppTree = AppTree;
-    return (0, _utils.loadGetInitialProps)(App, {
-      AppTree,
-      Component,
-      router: this,
-      ctx
-    });
-  }
-
-  abortComponentLoad(as) {
-    if (this.clc) {
-      Router.events.emit('routeChangeError', buildCancellationError(), as);
-      this.clc();
-      this.clc = null;
-    }
-  }
-
-  notify(data) {
-    return this.sub(data, this.components['/_app'].Component);
-  }
-
-}
-
-exports.default = Router;
-Router.events = (0, _mitt.default)();
-
-/***/ }),
-
-/***/ "fcRV":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = escapePathDelimiters; // escape delimiters used by path-to-regexp
-
-function escapePathDelimiters(segment) {
-  return segment.replace(/[/#?]/g, char => encodeURIComponent(char));
-}
-
-/***/ }),
-
-/***/ "flur":
-/***/ (function(module, exports) {
-
-module.exports = require("react-bootstrap/Row");
-
-/***/ }),
-
-/***/ "g/15":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.execOnce = execOnce;
-exports.getLocationOrigin = getLocationOrigin;
-exports.getURL = getURL;
-exports.getDisplayName = getDisplayName;
-exports.isResSent = isResSent;
-exports.loadGetInitialProps = loadGetInitialProps;
-exports.formatWithValidation = formatWithValidation;
-exports.ST = exports.SP = exports.urlObjectKeys = void 0;
-
-var _formatUrl = __webpack_require__("6D7l");
-/**
-* Utils
-*/
-
-
-function execOnce(fn) {
-  let used = false;
-  let result;
-  return (...args) => {
-    if (!used) {
-      used = true;
-      result = fn(...args);
-    }
-
-    return result;
-  };
-}
-
-function getLocationOrigin() {
-  const {
-    protocol,
-    hostname,
-    port
-  } = window.location;
-  return `${protocol}//${hostname}${port ? ':' + port : ''}`;
-}
-
-function getURL() {
-  const {
-    href
-  } = window.location;
-  const origin = getLocationOrigin();
-  return href.substring(origin.length);
-}
-
-function getDisplayName(Component) {
-  return typeof Component === 'string' ? Component : Component.displayName || Component.name || 'Unknown';
-}
-
-function isResSent(res) {
-  return res.finished || res.headersSent;
-}
-
-async function loadGetInitialProps(App, ctx) {
-  if (false) { var _App$prototype; } // when called from _app `ctx` is nested in `ctx`
-
-
-  const res = ctx.res || ctx.ctx && ctx.ctx.res;
-
-  if (!App.getInitialProps) {
-    if (ctx.ctx && ctx.Component) {
-      // @ts-ignore pageProps default
-      return {
-        pageProps: await loadGetInitialProps(ctx.Component, ctx.ctx)
-      };
-    }
-
-    return {};
-  }
-
-  const props = await App.getInitialProps(ctx);
-
-  if (res && isResSent(res)) {
-    return props;
-  }
-
-  if (!props) {
-    const message = `"${getDisplayName(App)}.getInitialProps()" should resolve to an object. But found "${props}" instead.`;
-    throw new Error(message);
-  }
-
-  if (false) {}
-
-  return props;
-}
-
-const urlObjectKeys = ['auth', 'hash', 'host', 'hostname', 'href', 'path', 'pathname', 'port', 'protocol', 'query', 'search', 'slashes'];
-exports.urlObjectKeys = urlObjectKeys;
-
-function formatWithValidation(url) {
-  if (false) {}
-
-  return (0, _formatUrl.formatUrl)(url);
-}
-
-const SP = typeof performance !== 'undefined';
-exports.SP = SP;
-const ST = SP && typeof performance.mark === 'function' && typeof performance.measure === 'function';
-exports.ST = ST;
-
-/***/ }),
-
-/***/ "gguc":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.getRouteMatcher = getRouteMatcher;
-
-function getRouteMatcher(routeRegex) {
-  const {
-    re,
-    groups
-  } = routeRegex;
-  return pathname => {
-    const routeMatch = re.exec(pathname);
-
-    if (!routeMatch) {
-      return false;
-    }
-
-    const decode = param => {
-      try {
-        return decodeURIComponent(param);
-      } catch (_) {
-        const err = new Error('failed to decode param');
-        err.code = 'DECODE_FAILED';
-        throw err;
-      }
-    };
-
-    const params = {};
-    Object.keys(groups).forEach(slugName => {
-      const g = groups[slugName];
-      const m = routeMatch[g.pos];
-
-      if (m !== undefined) {
-        params[slugName] = ~m.indexOf('/') ? m.split('/').map(entry => decode(entry)) : g.repeat ? [decode(m)] : decode(m);
-      }
-    });
-    return params;
-  };
-}
-
-/***/ }),
-
-/***/ "hS4m":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.parseRelativeUrl = parseRelativeUrl;
-
-var _utils = __webpack_require__("g/15");
-
-var _querystring = __webpack_require__("3WeD");
-
-const DUMMY_BASE = new URL(true ? 'http://n' : undefined);
-/**
-* Parses path-relative urls (e.g. `/hello/world?foo=bar`). If url isn't path-relative
-* (e.g. `./hello`) then at least base must be.
-* Absolute urls are rejected with one exception, in the browser, absolute urls that are on
-* the current origin will be parsed as relative
-*/
-
-function parseRelativeUrl(url, base) {
-  const resolvedBase = base ? new URL(base, DUMMY_BASE) : DUMMY_BASE;
-  const {
-    pathname,
-    searchParams,
-    search,
-    hash,
-    href,
-    origin,
-    protocol
-  } = new URL(url, resolvedBase);
-
-  if (origin !== DUMMY_BASE.origin || protocol !== 'http:' && protocol !== 'https:') {
-    throw new Error('invariant: invalid relative URL');
-  }
-
-  return {
-    pathname,
-    query: (0, _querystring.searchParamsToUrlQuery)(searchParams),
-    search,
-    hash,
-    href: href.slice(DUMMY_BASE.origin.length)
-  };
-}
-
-/***/ }),
-
-/***/ "jRcx":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("F5FC");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
 
@@ -2718,187 +552,316 @@ const Footerdata = () => {
   });
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Footerdata);
+/* harmony default export */ __webpack_exports__["default"] = (Footerdata);
 
 /***/ }),
 
-/***/ "lFrT":
-/***/ (function(module, exports) {
-
-module.exports = require("react-bootstrap/Navbar");
-
-/***/ }),
-
-/***/ "nOHt":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireWildcard = __webpack_require__("284h");
-
-var _interopRequireDefault = __webpack_require__("TqRt");
-
-exports.__esModule = true;
-exports.useRouter = useRouter;
-exports.makePublicRouterInstance = makePublicRouterInstance;
-exports.createRouter = exports.withRouter = exports.default = void 0;
-
-var _react = _interopRequireDefault(__webpack_require__("cDcd"));
-
-var _router2 = _interopRequireWildcard(__webpack_require__("elyg"));
-
-exports.Router = _router2.default;
-exports.NextRouter = _router2.NextRouter;
-
-var _routerContext = __webpack_require__("Osoz");
-
-var _withRouter = _interopRequireDefault(__webpack_require__("0Bsm"));
-
-exports.withRouter = _withRouter.default;
-/* global window */
-
-const singletonRouter = {
-  router: null,
-  // holds the actual router instance
-  readyCallbacks: [],
-
-  ready(cb) {
-    if (this.router) return cb();
-
-    if (false) {}
-  }
-
-}; // Create public properties and methods of the router in the singletonRouter
-
-const urlPropertyFields = ['pathname', 'route', 'query', 'asPath', 'components', 'isFallback', 'basePath', 'locale', 'locales', 'defaultLocale'];
-const routerEvents = ['routeChangeStart', 'beforeHistoryChange', 'routeChangeComplete', 'routeChangeError', 'hashChangeStart', 'hashChangeComplete'];
-const coreMethodFields = ['push', 'replace', 'reload', 'back', 'prefetch', 'beforePopState']; // Events is a static property on the router, the router doesn't have to be initialized to use it
-
-Object.defineProperty(singletonRouter, 'events', {
-  get() {
-    return _router2.default.events;
-  }
-
-});
-urlPropertyFields.forEach(field => {
-  // Here we need to use Object.defineProperty because, we need to return
-  // the property assigned to the actual router
-  // The value might get changed as we change routes and this is the
-  // proper way to access it
-  Object.defineProperty(singletonRouter, field, {
-    get() {
-      const router = getRouter();
-      return router[field];
-    }
-
-  });
-});
-coreMethodFields.forEach(field => {
-  // We don't really know the types here, so we add them later instead
-  ;
-
-  singletonRouter[field] = (...args) => {
-    const router = getRouter();
-    return router[field](...args);
-  };
-});
-routerEvents.forEach(event => {
-  singletonRouter.ready(() => {
-    _router2.default.events.on(event, (...args) => {
-      const eventField = `on${event.charAt(0).toUpperCase()}${event.substring(1)}`;
-      const _singletonRouter = singletonRouter;
-
-      if (_singletonRouter[eventField]) {
-        try {
-          _singletonRouter[eventField](...args);
-        } catch (err) {
-          console.error(`Error when running the Router event: ${eventField}`);
-          console.error(`${err.message}\n${err.stack}`);
-        }
-      }
-    });
-  });
-});
-
-function getRouter() {
-  if (!singletonRouter.router) {
-    const message = 'No router instance found.\n' + 'You should only use "next/router" inside the client side of your app.\n';
-    throw new Error(message);
-  }
-
-  return singletonRouter.router;
-} // Export the singletonRouter and this is the public API.
-
-
-var _default = singletonRouter; // Reexport the withRoute HOC
-
-exports.default = _default;
-
-function useRouter() {
-  return _react.default.useContext(_routerContext.RouterContext);
-} // INTERNAL APIS
-// -------------
-// (do not use following exports inside the app)
-// Create a router and assign it as the singleton instance.
-// This is used in client side when we are initilizing the app.
-// This should **not** use inside the server.
-
-
-const createRouter = (...args) => {
-  singletonRouter.router = new _router2.default(...args);
-  singletonRouter.readyCallbacks.forEach(cb => cb());
-  singletonRouter.readyCallbacks = [];
-  return singletonRouter.router;
-}; // This function is used to create the `withRouter` router instance
-
-
-exports.createRouter = createRouter;
-
-function makePublicRouterInstance(router) {
-  const _router = router;
-  const instance = {};
-
-  for (const property of urlPropertyFields) {
-    if (typeof _router[property] === 'object') {
-      instance[property] = Object.assign(Array.isArray(_router[property]) ? [] : {}, _router[property]); // makes sure query is not stateful
-
-      continue;
-    }
-
-    instance[property] = _router[property];
-  } // Events is a static property on the router, the router doesn't have to be initialized to use it
-
-
-  instance.events = _router2.default.events;
-  coreMethodFields.forEach(field => {
-    instance[field] = (...args) => {
-      return _router[field](...args);
-    };
-  });
-  return instance;
-}
-
-/***/ }),
-
-/***/ "oz4i":
-/***/ (function(module, exports) {
-
-module.exports = require("apollo-cache-inmemory");
-
-/***/ }),
-
-/***/ "szwz":
+/***/ "./components/Header.js":
+/*!******************************!*\
+  !*** ./components/Header.js ***!
+  \******************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppContext; });
-/* unused harmony export AppProvider */
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("F5FC");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("cDcd");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "react/jsx-dev-runtime");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Navdata__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Navdata */ "./components/Navdata.js");
+
+var _jsxFileName = "C:\\Users\\ajith\\Desktop\\keymoji\\components\\Header.js";
+
+
+const Header = () => {
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
+    children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(_Navdata__WEBPACK_IMPORTED_MODULE_1__["default"], {}, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 4
+    }, undefined)
+  }, void 0, false, {
+    fileName: _jsxFileName,
+    lineNumber: 4,
+    columnNumber: 3
+  }, undefined);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./components/Navdata.js":
+/*!*******************************!*\
+  !*** ./components/Navdata.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "react/jsx-dev-runtime");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap/Navbar */ "react-bootstrap/Navbar");
+/* harmony import */ var react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap/Nav */ "react-bootstrap/Nav");
+/* harmony import */ var react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap/Form */ "react-bootstrap/Form");
+/* harmony import */ var react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_bootstrap_FormControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap/FormControl */ "react-bootstrap/FormControl");
+/* harmony import */ var react_bootstrap_FormControl__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_FormControl__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/Button */ "react-bootstrap/Button");
+/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/Image */ "react-bootstrap/Image");
+/* harmony import */ var react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+
+var _jsxFileName = "C:\\Users\\ajith\\Desktop\\keymoji\\components\\Navdata.js";
+
+
+
+
+
+
+
+
+const Navdata = () => {
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    bg: "light",
+    expand: "lg",
+    className: "header_area",
+    children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1___default.a.Brand, {
+      href: "#home",
+      className: "navbar-brand logo_h",
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_6___default.a, {
+        className: "imglogo",
+        src: "http://localhost/wordpress/wp-content/uploads/2020/11/cropped-logo.png"
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 17
+      }, undefined)
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 15
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1___default.a.Toggle, {
+      "aria-controls": "basic-navbar-nav"
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 15
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1___default.a.Collapse, {
+      id: "basic-navbar-nav",
+      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        className: "mr-auto",
+        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
+          href: "/",
+          className: "nav-item",
+          children: "HOME"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 17,
+          columnNumber: 19
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
+          href: "/Shop",
+          className: "nav-item",
+          children: "SHOP"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 18,
+          columnNumber: 19
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
+          href: "/gallery",
+          className: "nav-item",
+          children: "GALLERY"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 19,
+          columnNumber: 19
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
+          href: "/About",
+          className: "nav-item",
+          children: "ABOUT US"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 20,
+          columnNumber: 19
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
+          href: "/singleproduct",
+          className: "nav-item",
+          children: "CART"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 21,
+          columnNumber: 19
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
+          href: "#link",
+          className: "nav-item",
+          children: "WISHLIST"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 22,
+          columnNumber: 19
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
+          href: "#link",
+          className: "nav-item",
+          children: "MY ACCOUNT"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 23,
+          columnNumber: 19
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2___default.a.Link, {
+          href: "#link",
+          className: "nav-item",
+          children: "LOGOUT"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 24,
+          columnNumber: 19
+        }, undefined)]
+      }, void 0, true, {
+        fileName: _jsxFileName,
+        lineNumber: 16,
+        columnNumber: 17
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3___default.a, {
+        inline: true,
+        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_FormControl__WEBPACK_IMPORTED_MODULE_4___default.a, {
+          type: "text",
+          placeholder: "Search",
+          className: "form-control"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 27,
+          columnNumber: 19
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5___default.a, {
+          variant: "secondary",
+          children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("i", {
+            className: "ti ti-search"
+          }, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 28,
+            columnNumber: 47
+          }, undefined)
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 28,
+          columnNumber: 19
+        }, undefined)]
+      }, void 0, true, {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 17
+      }, undefined)]
+    }, void 0, true, {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 15
+    }, undefined)]
+  }, void 0, true, {
+    fileName: _jsxFileName,
+    lineNumber: 10,
+    columnNumber: 12
+  }, undefined);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Navdata);
+
+/***/ }),
+
+/***/ "./components/carticon/Carticon.js":
+/*!*****************************************!*\
+  !*** ./components/carticon/Carticon.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "react/jsx-dev-runtime");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _context_AppContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../context/AppContext */ "./components/context/AppContext.js");
+
+var _jsxFileName = "C:\\Users\\ajith\\Desktop\\keymoji\\components\\carticon\\Carticon.js";
+
+
+
+
+const Carticon = () => {
+  const {
+    0: cart
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_context_AppContext__WEBPACK_IMPORTED_MODULE_2__["AppContext"]);
+  const productsCount = null !== cart && Object.keys(cart).length ? cart.totalProductsCount : '';
+  const totalPrice = null !== cart && Object.keys(cart).length ? cart.totalProductsPrice : '';
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, {
+    children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
+      className: "woo-next-cart-wrap",
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("span", {
+        className: "woo-next-cart-icon-container",
+        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("i", {
+          className: "ti ti-shopping-cart woo-next-cart-icon"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 13,
+          columnNumber: 21
+        }, undefined), productsCount ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("span", {
+          className: "woo-next-cart-count",
+          children: productsCount
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 14,
+          columnNumber: 39
+        }, undefined) : '']
+      }, void 0, true, {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 17
+      }, undefined)
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 13
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("i", {
+      style: {
+        fontSize: "10px",
+        color: "black"
+      },
+      children: "Cart"
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 13
+    }, undefined)]
+  }, void 0, true, {
+    fileName: _jsxFileName,
+    lineNumber: 10,
+    columnNumber: 8
+  }, undefined);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Carticon);
+
+/***/ }),
+
+/***/ "./components/context/AppContext.js":
+/*!******************************************!*\
+  !*** ./components/context/AppContext.js ***!
+  \******************************************/
+/*! exports provided: AppContext, AppProvider */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppContext", function() { return AppContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppProvider", function() { return AppProvider; });
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "react/jsx-dev-runtime");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
+var _jsxFileName = "C:\\Users\\ajith\\Desktop\\keymoji\\components\\context\\AppContext.js";
 
 const AppContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createContext([{}, () => {}]);
 const AppProvider = props => {
@@ -2910,164 +873,516 @@ const AppProvider = props => {
     // @TODO Will add option to show the cart with localStorage later.
     if (false) {}
   }, []);
-  return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(AppContext.Provider, {
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(AppContext.Provider, {
     value: [cart, setCart],
     children: props.children
-  });
+  }, void 0, false, {
+    fileName: _jsxFileName,
+    lineNumber: 23,
+    columnNumber: 3
+  }, undefined);
 };
 
 /***/ }),
 
-/***/ "tfHl":
-/***/ (function(module, exports) {
+/***/ "./components/gallery/Gallery.js":
+/*!***************************************!*\
+  !*** ./components/gallery/Gallery.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = require("react-bootstrap/Col");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "react/jsx-dev-runtime");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap/Container */ "react-bootstrap/Container");
+/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap/Row */ "react-bootstrap/Row");
+/* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap/Col */ "react-bootstrap/Col");
+/* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap/Image */ "react-bootstrap/Image");
+/* harmony import */ var react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4__);
+
+var _jsxFileName = "C:\\Users\\ajith\\Desktop\\keymoji\\components\\gallery\\Gallery.js";
+
+
+
+
+
+const Gallery = propgl => {
+  const {
+    mediaItem
+  } = propgl;
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
+    className: "col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12",
+    children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("a", {
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        src: mediaItem.image.sourceUrl,
+        thumbnail: true
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 9,
+        columnNumber: 16
+      }, undefined)
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 13
+    }, undefined)
+  }, void 0, false, {
+    fileName: _jsxFileName,
+    lineNumber: 8,
+    columnNumber: 9
+  }, undefined);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Gallery);
 
 /***/ }),
 
-/***/ "txk1":
-/***/ (function(module, exports) {
+/***/ "./components/gallery/Layout.js":
+/*!**************************************!*\
+  !*** ./components/gallery/Layout.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = require("graphql-tag");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "react/jsx-dev-runtime");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _styles_Style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../styles/Style.css */ "./styles/Style.css");
+/* harmony import */ var _styles_Style_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_Style_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Footer */ "./components/Footer.js");
+/* harmony import */ var _Footerdata__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Footerdata */ "./components/Footerdata.js");
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Header */ "./components/Header.js");
+/* harmony import */ var _Gallery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Gallery */ "./components/gallery/Gallery.js");
+/* harmony import */ var _ApolloClient__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../ApolloClient */ "./components/ApolloClient.js");
+/* harmony import */ var _context_AppContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../context/AppContext */ "./components/context/AppContext.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_9__);
+
+var _jsxFileName = "C:\\Users\\ajith\\Desktop\\keymoji\\components\\gallery\\Layout.js";
+
+
+
+
+
+
+
+
+
+
+const Layout = propgly => {
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(_context_AppContext__WEBPACK_IMPORTED_MODULE_7__["AppProvider"], {
+    children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(react_apollo__WEBPACK_IMPORTED_MODULE_8__["ApolloProvider"], {
+      client: _ApolloClient__WEBPACK_IMPORTED_MODULE_6__["default"],
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_9__["ApolloProvider"], {
+        client: _ApolloClient__WEBPACK_IMPORTED_MODULE_6__["default"],
+        children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
+          children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("title", {
+            children: "Gallery"
+          }, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 17,
+            columnNumber: 13
+          }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("link", {
+            rel: "stylesheet",
+            href: "https://unpkg.com/@icon/themify-icons/themify-icons.css"
+          }, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 18,
+            columnNumber: 13
+          }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("link", {
+            rel: "stylesheet",
+            href: "https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          }, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 19,
+            columnNumber: 13
+          }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {}, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 20,
+            columnNumber: 13
+          }, undefined), propgly.children, /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(_Footerdata__WEBPACK_IMPORTED_MODULE_3__["default"], {}, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 22,
+            columnNumber: 13
+          }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], {}, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 23,
+            columnNumber: 13
+          }, undefined)]
+        }, void 0, true, {
+          fileName: _jsxFileName,
+          lineNumber: 16,
+          columnNumber: 9
+        }, undefined)
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 13
+      }, undefined)
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 9
+    }, undefined)
+  }, void 0, false, {
+    fileName: _jsxFileName,
+    lineNumber: 13,
+    columnNumber: 9
+  }, undefined);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Layout);
 
 /***/ }),
 
-/***/ "vDuQ":
-/***/ (function(module, exports) {
+/***/ "./fragmentTypes.json":
+/*!****************************!*\
+  !*** ./fragmentTypes.json ***!
+  \****************************/
+/*! exports provided: __schema, default */
+/***/ (function(module) {
 
-module.exports = require("react-bootstrap/Container");
-
-/***/ }),
-
-/***/ "vVTy":
-/***/ (function(module, exports) {
-
-module.exports = require("react-bootstrap/Button");
+module.exports = JSON.parse("{\"__schema\":{\"types\":[{\"kind\":\"INTERFACE\",\"name\":\"Node\",\"possibleTypes\":[{\"name\":\"Coupon\"},{\"name\":\"ContentType\"},{\"name\":\"Taxonomy\"},{\"name\":\"ProductCategory\"},{\"name\":\"MediaItem\"},{\"name\":\"User\"},{\"name\":\"Comment\"},{\"name\":\"CommentAuthor\"},{\"name\":\"Post\"},{\"name\":\"Category\"},{\"name\":\"PostFormat\"},{\"name\":\"Tag\"},{\"name\":\"ProductType\"},{\"name\":\"VisibleProduct\"},{\"name\":\"ProductTag\"},{\"name\":\"PaColor\"},{\"name\":\"ProductVariation\"},{\"name\":\"VariableProduct\"},{\"name\":\"PaSize\"},{\"name\":\"ShippingClass\"},{\"name\":\"Page\"},{\"name\":\"UserRole\"},{\"name\":\"Customer\"},{\"name\":\"Order\"},{\"name\":\"TaxRate\"},{\"name\":\"Refund\"},{\"name\":\"ShippingMethod\"},{\"name\":\"ExternalProduct\"},{\"name\":\"GroupProduct\"},{\"name\":\"Menu\"},{\"name\":\"MenuItem\"},{\"name\":\"Plugin\"},{\"name\":\"SimpleProduct\"},{\"name\":\"Theme\"}]},{\"kind\":\"INTERFACE\",\"name\":\"TermNode\",\"possibleTypes\":[{\"name\":\"ProductCategory\"},{\"name\":\"Category\"},{\"name\":\"PostFormat\"},{\"name\":\"Tag\"},{\"name\":\"ProductType\"},{\"name\":\"VisibleProduct\"},{\"name\":\"ProductTag\"},{\"name\":\"PaColor\"},{\"name\":\"PaSize\"},{\"name\":\"ShippingClass\"}]},{\"kind\":\"INTERFACE\",\"name\":\"UniformResourceIdentifiable\",\"possibleTypes\":[{\"name\":\"ProductCategory\"},{\"name\":\"MediaItem\"},{\"name\":\"User\"},{\"name\":\"Post\"},{\"name\":\"Category\"},{\"name\":\"PostFormat\"},{\"name\":\"Tag\"},{\"name\":\"ProductType\"},{\"name\":\"VisibleProduct\"},{\"name\":\"ProductTag\"},{\"name\":\"PaColor\"},{\"name\":\"PaSize\"},{\"name\":\"ShippingClass\"},{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"ContentNode\",\"possibleTypes\":[{\"name\":\"MediaItem\"},{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"UNION\",\"name\":\"CommentAuthorUnion\",\"possibleTypes\":[{\"name\":\"User\"},{\"name\":\"CommentAuthor\"}]},{\"kind\":\"UNION\",\"name\":\"PostObjectUnion\",\"possibleTypes\":[{\"name\":\"Post\"},{\"name\":\"Page\"},{\"name\":\"MediaItem\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithTitle\",\"possibleTypes\":[{\"name\":\"MediaItem\"},{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithContentEditor\",\"possibleTypes\":[{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithAuthor\",\"possibleTypes\":[{\"name\":\"MediaItem\"},{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithFeaturedImage\",\"possibleTypes\":[{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithExcerpt\",\"possibleTypes\":[{\"name\":\"Post\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithComments\",\"possibleTypes\":[{\"name\":\"MediaItem\"},{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithTrackbacks\",\"possibleTypes\":[{\"name\":\"Post\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithRevisions\",\"possibleTypes\":[{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"UNION\",\"name\":\"TermObjectUnion\",\"possibleTypes\":[{\"name\":\"Category\"},{\"name\":\"Tag\"},{\"name\":\"PostFormat\"},{\"name\":\"ProductType\"},{\"name\":\"VisibleProduct\"},{\"name\":\"ProductCategory\"},{\"name\":\"ProductTag\"},{\"name\":\"ShippingClass\"},{\"name\":\"PaColor\"},{\"name\":\"PaSize\"}]},{\"kind\":\"INTERFACE\",\"name\":\"Product\",\"possibleTypes\":[{\"name\":\"VariableProduct\"},{\"name\":\"ExternalProduct\"},{\"name\":\"GroupProduct\"},{\"name\":\"SimpleProduct\"}]},{\"kind\":\"INTERFACE\",\"name\":\"ProductAttribute\",\"possibleTypes\":[{\"name\":\"GlobalProductAttribute\"},{\"name\":\"LocalProductAttribute\"}]},{\"kind\":\"INTERFACE\",\"name\":\"NodeWithPageAttributes\",\"possibleTypes\":[{\"name\":\"Page\"}]},{\"kind\":\"INTERFACE\",\"name\":\"HierarchicalContentNode\",\"possibleTypes\":[{\"name\":\"MediaItem\"},{\"name\":\"Page\"}]},{\"kind\":\"UNION\",\"name\":\"ContentRevisionUnion\",\"possibleTypes\":[{\"name\":\"Post\"},{\"name\":\"Page\"}]},{\"kind\":\"UNION\",\"name\":\"MenuItemObjectUnion\",\"possibleTypes\":[{\"name\":\"Post\"},{\"name\":\"Page\"},{\"name\":\"Category\"},{\"name\":\"Tag\"},{\"name\":\"ProductCategory\"},{\"name\":\"ProductTag\"},{\"name\":\"MenuItem\"}]}]}}");
 
 /***/ }),
 
-/***/ "vuC2":
+/***/ "./pages/gallery.js":
+/*!**************************!*\
+  !*** ./pages/gallery.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "react/jsx-dev-runtime");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_gallery_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/gallery/Layout */ "./components/gallery/Layout.js");
+/* harmony import */ var _components_gallery_Gallery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/gallery/Gallery */ "./components/gallery/Gallery.js");
+/* harmony import */ var _components_ApolloClient__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ApolloClient */ "./components/ApolloClient.js");
+/* harmony import */ var _queries_mediaitems__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../queries/mediaitems */ "./queries/mediaitems.js");
+
+var _jsxFileName = "C:\\Users\\ajith\\Desktop\\keymoji\\pages\\gallery.js";
+
+
+
+
+
+const gallery = propg => {
+  const {
+    mediaItems
+  } = propg;
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(_components_gallery_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
+      className: "product-container",
+      children: mediaItems.length ? mediaItems.map(mediaItem => /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(_components_gallery_Gallery__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        mediaItem: mediaItem
+      }, mediaItem.id, false, {
+        fileName: _jsxFileName,
+        lineNumber: 13,
+        columnNumber: 35
+      }, undefined)) : ''
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 13
+    }, undefined)
+  }, void 0, false, {
+    fileName: _jsxFileName,
+    lineNumber: 10,
+    columnNumber: 3
+  }, undefined);
+};
+
+gallery.getInitialProps = async () => {
+  const result = await _components_ApolloClient__WEBPACK_IMPORTED_MODULE_3__["default"].query({
+    query: _queries_mediaitems__WEBPACK_IMPORTED_MODULE_4__["default"]
+  });
+  return {
+    mediaItems: result.data.products.nodes
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (gallery);
+
+/***/ }),
+
+/***/ "./queries/mediaitems.js":
+/*!*******************************!*\
+  !*** ./queries/mediaitems.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+
+const MEDIA_LIST = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.a`query {
+  products {
+    nodes {
+      image {
+        id
+        slug
+        sourceUrl
+      }
+    }
+  }
+}`;
+/* harmony default export */ __webpack_exports__["default"] = (MEDIA_LIST);
+
+/***/ }),
+
+/***/ "./styles/Style.css":
+/*!**************************!*\
+  !*** ./styles/Style.css ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "@apollo/react-hooks":
+/*!**************************************!*\
+  !*** external "@apollo/react-hooks" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@apollo/react-hooks");
+
+/***/ }),
+
+/***/ "apollo-cache-inmemory":
+/*!****************************************!*\
+  !*** external "apollo-cache-inmemory" ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("apollo-cache-inmemory");
+
+/***/ }),
+
+/***/ "apollo-client":
+/*!********************************!*\
+  !*** external "apollo-client" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("apollo-client");
+
+/***/ }),
+
+/***/ "apollo-link":
+/*!******************************!*\
+  !*** external "apollo-link" ***!
+  \******************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
 module.exports = require("apollo-link");
 
 /***/ }),
 
-/***/ "wkBG":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "apollo-link-http":
+/*!***********************************!*\
+  !*** external "apollo-link-http" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-exports.__esModule=true;exports.normalizePathSep=normalizePathSep;exports.denormalizePagePath=denormalizePagePath;function normalizePathSep(path){return path.replace(/\\/g,'/');}function denormalizePagePath(page){page=normalizePathSep(page);if(page.startsWith('/index/')){page=page.slice(6);}else if(page==='/index'){page='/';}return page;}
-//# sourceMappingURL=denormalize-page-path.js.map
+module.exports = require("apollo-link-http");
 
 /***/ }),
 
-/***/ "xEei":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "graphql-tag":
+/*!******************************!*\
+  !*** external "graphql-tag" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
+module.exports = require("graphql-tag");
 
-// UNUSED EXPORTS: middleware, afterware
+/***/ }),
 
-// EXTERNAL MODULE: external "node-fetch"
-var external_node_fetch_ = __webpack_require__("4vsW");
-var external_node_fetch_default = /*#__PURE__*/__webpack_require__.n(external_node_fetch_);
+/***/ "node-fetch":
+/*!*****************************!*\
+  !*** external "node-fetch" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-// EXTERNAL MODULE: external "apollo-client"
-var external_apollo_client_ = __webpack_require__("Oyez");
+module.exports = require("node-fetch");
 
-// EXTERNAL MODULE: external "apollo-cache-inmemory"
-var external_apollo_cache_inmemory_ = __webpack_require__("oz4i");
+/***/ }),
 
-// EXTERNAL MODULE: external "apollo-link-http"
-var external_apollo_link_http_ = __webpack_require__("TG1l");
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-// EXTERNAL MODULE: external "apollo-link"
-var external_apollo_link_ = __webpack_require__("vuC2");
+module.exports = require("react");
 
-// EXTERNAL MODULE: ./fragmentTypes.json
-var fragmentTypes = __webpack_require__("ZOZq");
+/***/ }),
 
-// CONCATENATED MODULE: ./client-config.js
-const clientConfig = {
-  siteUrl: 'http://localhost:3000',
-  graphqlUrl: 'http://localhost/wordpress/graphql'
-};
-/* harmony default export */ var client_config = (clientConfig);
-// CONCATENATED MODULE: ./components/ApolloClient.js
+/***/ "react-apollo":
+/*!*******************************!*\
+  !*** external "react-apollo" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
+module.exports = require("react-apollo");
 
+/***/ }),
 
+/***/ "react-bootstrap/Button":
+/*!*****************************************!*\
+  !*** external "react-bootstrap/Button" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
+module.exports = require("react-bootstrap/Button");
 
+/***/ }),
 
+/***/ "react-bootstrap/Col":
+/*!**************************************!*\
+  !*** external "react-bootstrap/Col" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
- // Fragment matcher.
+module.exports = require("react-bootstrap/Col");
 
-const fragmentMatcher = new external_apollo_cache_inmemory_["IntrospectionFragmentMatcher"]({
-  introspectionQueryResultData: fragmentTypes
-});
-const middleware = new external_apollo_link_["ApolloLink"]((operation, forward) => {
-  /**
-   * If session data exist in local storage, set value as session header.
-   */
-  const session = false ? undefined : null;
+/***/ }),
 
-  if (session) {
-    operation.setContext(({
-      headers = {}
-    }) => ({
-      headers: {
-        "woocommerce-session": `Session ${session}`
-      }
-    }));
-  }
+/***/ "react-bootstrap/Container":
+/*!********************************************!*\
+  !*** external "react-bootstrap/Container" ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-  return forward(operation);
-});
-/**
- * Afterware operation.
- *
- * This catches the incoming session token and stores it in localStorage, for future GraphQL requests.
- */
+module.exports = require("react-bootstrap/Container");
 
-const afterware = new external_apollo_link_["ApolloLink"]((operation, forward) => {
-  return forward(operation).map(response => {
-    /**
-     * Check for session header and update session in local storage accordingly.
-     */
-    const context = operation.getContext();
-    const {
-      response: {
-        headers
-      }
-    } = context;
-    const session = headers.get("woocommerce-session");
+/***/ }),
 
-    if (session) {
-      // Remove session data if session destroyed.
-      if ("false" === session) {
-        localStorage.removeItem("woo-session"); // Update session new data if changed.
-      } else if (localStorage.getItem("woo-session") !== session) {
-        localStorage.setItem("woo-session", headers.get("woocommerce-session"));
-      }
-    }
+/***/ "react-bootstrap/Form":
+/*!***************************************!*\
+  !*** external "react-bootstrap/Form" ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-    return response;
-  });
-}); // Apollo GraphQL client.
+module.exports = require("react-bootstrap/Form");
 
-const client = new external_apollo_client_["ApolloClient"]({
-  link: middleware.concat(afterware.concat(Object(external_apollo_link_http_["createHttpLink"])({
-    uri: client_config.graphqlUrl,
-    fetch: external_node_fetch_default.a
-  }))),
-  cache: new external_apollo_cache_inmemory_["InMemoryCache"]({
-    fragmentMatcher
-  })
-});
-/* harmony default export */ var ApolloClient = __webpack_exports__["a"] = (client);
+/***/ }),
+
+/***/ "react-bootstrap/FormControl":
+/*!**********************************************!*\
+  !*** external "react-bootstrap/FormControl" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-bootstrap/FormControl");
+
+/***/ }),
+
+/***/ "react-bootstrap/Image":
+/*!****************************************!*\
+  !*** external "react-bootstrap/Image" ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-bootstrap/Image");
+
+/***/ }),
+
+/***/ "react-bootstrap/Nav":
+/*!**************************************!*\
+  !*** external "react-bootstrap/Nav" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-bootstrap/Nav");
+
+/***/ }),
+
+/***/ "react-bootstrap/Navbar":
+/*!*****************************************!*\
+  !*** external "react-bootstrap/Navbar" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-bootstrap/Navbar");
+
+/***/ }),
+
+/***/ "react-bootstrap/Row":
+/*!**************************************!*\
+  !*** external "react-bootstrap/Row" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-bootstrap/Row");
+
+/***/ }),
+
+/***/ "react-sticky-footer":
+/*!**************************************!*\
+  !*** external "react-sticky-footer" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-sticky-footer");
+
+/***/ }),
+
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react/jsx-dev-runtime");
+
+/***/ }),
+
+/***/ "react/jsx-runtime":
+/*!************************************!*\
+  !*** external "react/jsx-runtime" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react/jsx-runtime");
 
 /***/ })
 
 /******/ });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vd2VicGFjay9ib290c3RyYXAiLCJ3ZWJwYWNrOi8vLy4vY2xpZW50LWNvbmZpZy5qcyIsIndlYnBhY2s6Ly8vLi9jb21wb25lbnRzL0Fwb2xsb0NsaWVudC5qcyIsIndlYnBhY2s6Ly8vLi9jb21wb25lbnRzL0Zvb3Rlci5qcyIsIndlYnBhY2s6Ly8vLi9jb21wb25lbnRzL0Zvb3RlcmRhdGEuanMiLCJ3ZWJwYWNrOi8vLy4vY29tcG9uZW50cy9IZWFkZXIuanMiLCJ3ZWJwYWNrOi8vLy4vY29tcG9uZW50cy9OYXZkYXRhLmpzIiwid2VicGFjazovLy8uL2NvbXBvbmVudHMvY2FydGljb24vQ2FydGljb24uanMiLCJ3ZWJwYWNrOi8vLy4vY29tcG9uZW50cy9jb250ZXh0L0FwcENvbnRleHQuanMiLCJ3ZWJwYWNrOi8vLy4vY29tcG9uZW50cy9nYWxsZXJ5L0dhbGxlcnkuanMiLCJ3ZWJwYWNrOi8vLy4vY29tcG9uZW50cy9nYWxsZXJ5L0xheW91dC5qcyIsIndlYnBhY2s6Ly8vLi9wYWdlcy9nYWxsZXJ5LmpzIiwid2VicGFjazovLy8uL3F1ZXJpZXMvbWVkaWFpdGVtcy5qcyIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJAYXBvbGxvL3JlYWN0LWhvb2tzXCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwiYXBvbGxvLWNhY2hlLWlubWVtb3J5XCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwiYXBvbGxvLWNsaWVudFwiIiwid2VicGFjazovLy9leHRlcm5hbCBcImFwb2xsby1saW5rXCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwiYXBvbGxvLWxpbmstaHR0cFwiIiwid2VicGFjazovLy9leHRlcm5hbCBcImdyYXBocWwtdGFnXCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwibm9kZS1mZXRjaFwiIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlYWN0XCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwicmVhY3QtYXBvbGxvXCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwicmVhY3QtYm9vdHN0cmFwL0J1dHRvblwiIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlYWN0LWJvb3RzdHJhcC9Db2xcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZWFjdC1ib290c3RyYXAvQ29udGFpbmVyXCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwicmVhY3QtYm9vdHN0cmFwL0Zvcm1cIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZWFjdC1ib290c3RyYXAvRm9ybUNvbnRyb2xcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZWFjdC1ib290c3RyYXAvSW1hZ2VcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZWFjdC1ib290c3RyYXAvTmF2XCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwicmVhY3QtYm9vdHN0cmFwL05hdmJhclwiIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlYWN0LWJvb3RzdHJhcC9Sb3dcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZWFjdC1zdGlja3ktZm9vdGVyXCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwicmVhY3QvanN4LWRldi1ydW50aW1lXCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwicmVhY3QvanN4LXJ1bnRpbWVcIiJdLCJuYW1lcyI6WyJjbGllbnRDb25maWciLCJzaXRlVXJsIiwiZ3JhcGhxbFVybCIsImZyYWdtZW50TWF0Y2hlciIsIkludHJvc3BlY3Rpb25GcmFnbWVudE1hdGNoZXIiLCJpbnRyb3NwZWN0aW9uUXVlcnlSZXN1bHREYXRhIiwibWlkZGxld2FyZSIsIkFwb2xsb0xpbmsiLCJvcGVyYXRpb24iLCJmb3J3YXJkIiwic2Vzc2lvbiIsImxvY2FsU3RvcmFnZSIsInNldENvbnRleHQiLCJoZWFkZXJzIiwiYWZ0ZXJ3YXJlIiwibWFwIiwicmVzcG9uc2UiLCJjb250ZXh0IiwiZ2V0Q29udGV4dCIsImdldCIsInJlbW92ZUl0ZW0iLCJnZXRJdGVtIiwic2V0SXRlbSIsImNsaWVudCIsIkFwb2xsb0NsaWVudCIsImxpbmsiLCJjb25jYXQiLCJjcmVhdGVIdHRwTGluayIsInVyaSIsImZldGNoIiwiY2FjaGUiLCJJbk1lbW9yeUNhY2hlIiwiRm9vdGVyIiwiYmFja2dyb3VuZENvbG9yIiwicGFkZGluZyIsImFsaWduIiwid2lkdGgiLCJ0ZXh0QWxpZ24iLCJmb250U2l6ZSIsImNvbG9yIiwiRm9vdGVyZGF0YSIsIkhlYWRlciIsIk5hdmRhdGEiLCJDYXJ0aWNvbiIsImNhcnQiLCJ1c2VDb250ZXh0IiwiQXBwQ29udGV4dCIsInByb2R1Y3RzQ291bnQiLCJPYmplY3QiLCJrZXlzIiwibGVuZ3RoIiwidG90YWxQcm9kdWN0c0NvdW50IiwidG90YWxQcmljZSIsInRvdGFsUHJvZHVjdHNQcmljZSIsIlJlYWN0IiwiY3JlYXRlQ29udGV4dCIsIkFwcFByb3ZpZGVyIiwicHJvcHMiLCJzZXRDYXJ0IiwidXNlU3RhdGUiLCJ1c2VFZmZlY3QiLCJjaGlsZHJlbiIsIkdhbGxlcnkiLCJwcm9wZ2wiLCJtZWRpYUl0ZW0iLCJpbWFnZSIsInNvdXJjZVVybCIsIkxheW91dCIsInByb3BnbHkiLCJnYWxsZXJ5IiwicHJvcGciLCJtZWRpYUl0ZW1zIiwiaWQiLCJnZXRJbml0aWFsUHJvcHMiLCJyZXN1bHQiLCJxdWVyeSIsIk1FRElBX0xJU1QiLCJkYXRhIiwicHJvZHVjdHMiLCJub2RlcyIsImdxbCJdLCJtYXBwaW5ncyI6Ijs7UUFBQTtRQUNBOztRQUVBO1FBQ0E7O1FBRUE7UUFDQTtRQUNBO1FBQ0E7UUFDQTtRQUNBO1FBQ0E7UUFDQTtRQUNBO1FBQ0E7O1FBRUE7UUFDQTtRQUNBO1FBQ0E7UUFDQTtRQUNBLElBQUk7UUFDSjtRQUNBOztRQUVBO1FBQ0E7O1FBRUE7UUFDQTtRQUNBOzs7UUFHQTtRQUNBOztRQUVBO1FBQ0E7O1FBRUE7UUFDQTtRQUNBO1FBQ0EsMENBQTBDLGdDQUFnQztRQUMxRTtRQUNBOztRQUVBO1FBQ0E7UUFDQTtRQUNBLHdEQUF3RCxrQkFBa0I7UUFDMUU7UUFDQSxpREFBaUQsY0FBYztRQUMv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LHdDOzs7Ozs7Ozs7OztBQ0FBLDZDOzs7Ozs7Ozs7OztBQ0FBLHdDOzs7Ozs7Ozs7OztBQ0FBLHVDOzs7Ozs7Ozs7OztBQ0FBLGtDOzs7Ozs7Ozs7OztBQ0FBLHlDOzs7Ozs7Ozs7OztBQ0FBLG1EOzs7Ozs7Ozs7OztBQ0FBLGdEOzs7Ozs7Ozs7OztBQ0FBLHNEOzs7Ozs7Ozs7OztBQ0FBLGlEOzs7Ozs7Ozs7OztBQ0FBLHdEOzs7Ozs7Ozs7OztBQ0FBLGtEOzs7Ozs7Ozs7OztBQ0FBLGdEOzs7Ozs7Ozs7OztBQ0FBLG1EOzs7Ozs7Ozs7OztBQ0FBLGdEOzs7Ozs7Ozs7OztBQ0FBLGdEOzs7Ozs7Ozs7OztBQ0FBLGtEOzs7Ozs7Ozs7OztBQ0FBLDhDIiwiZmlsZSI6InBhZ2VzL2dhbGxlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyIgXHQvLyBUaGUgbW9kdWxlIGNhY2hlXG4gXHR2YXIgaW5zdGFsbGVkTW9kdWxlcyA9IHJlcXVpcmUoJy4uL3Nzci1tb2R1bGUtY2FjaGUuanMnKTtcblxuIFx0Ly8gVGhlIHJlcXVpcmUgZnVuY3Rpb25cbiBcdGZ1bmN0aW9uIF9fd2VicGFja19yZXF1aXJlX18obW9kdWxlSWQpIHtcblxuIFx0XHQvLyBDaGVjayBpZiBtb2R1bGUgaXMgaW4gY2FjaGVcbiBcdFx0aWYoaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0pIHtcbiBcdFx0XHRyZXR1cm4gaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0uZXhwb3J0cztcbiBcdFx0fVxuIFx0XHQvLyBDcmVhdGUgYSBuZXcgbW9kdWxlIChhbmQgcHV0IGl0IGludG8gdGhlIGNhY2hlKVxuIFx0XHR2YXIgbW9kdWxlID0gaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0gPSB7XG4gXHRcdFx0aTogbW9kdWxlSWQsXG4gXHRcdFx0bDogZmFsc2UsXG4gXHRcdFx0ZXhwb3J0czoge31cbiBcdFx0fTtcblxuIFx0XHQvLyBFeGVjdXRlIHRoZSBtb2R1bGUgZnVuY3Rpb25cbiBcdFx0dmFyIHRocmV3ID0gdHJ1ZTtcbiBcdFx0dHJ5IHtcbiBcdFx0XHRtb2R1bGVzW21vZHVsZUlkXS5jYWxsKG1vZHVsZS5leHBvcnRzLCBtb2R1bGUsIG1vZHVsZS5leHBvcnRzLCBfX3dlYnBhY2tfcmVxdWlyZV9fKTtcbiBcdFx0XHR0aHJldyA9IGZhbHNlO1xuIFx0XHR9IGZpbmFsbHkge1xuIFx0XHRcdGlmKHRocmV3KSBkZWxldGUgaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF07XG4gXHRcdH1cblxuIFx0XHQvLyBGbGFnIHRoZSBtb2R1bGUgYXMgbG9hZGVkXG4gXHRcdG1vZHVsZS5sID0gdHJ1ZTtcblxuIFx0XHQvLyBSZXR1cm4gdGhlIGV4cG9ydHMgb2YgdGhlIG1vZHVsZVxuIFx0XHRyZXR1cm4gbW9kdWxlLmV4cG9ydHM7XG4gXHR9XG5cblxuIFx0Ly8gZXhwb3NlIHRoZSBtb2R1bGVzIG9iamVjdCAoX193ZWJwYWNrX21vZHVsZXNfXylcbiBcdF9fd2VicGFja19yZXF1aXJlX18ubSA9IG1vZHVsZXM7XG5cbiBcdC8vIGV4cG9zZSB0aGUgbW9kdWxlIGNhY2hlXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLmMgPSBpbnN0YWxsZWRNb2R1bGVzO1xuXG4gXHQvLyBkZWZpbmUgZ2V0dGVyIGZ1bmN0aW9uIGZvciBoYXJtb255IGV4cG9ydHNcbiBcdF9fd2VicGFja19yZXF1aXJlX18uZCA9IGZ1bmN0aW9uKGV4cG9ydHMsIG5hbWUsIGdldHRlcikge1xuIFx0XHRpZighX193ZWJwYWNrX3JlcXVpcmVfXy5vKGV4cG9ydHMsIG5hbWUpKSB7XG4gXHRcdFx0T2JqZWN0LmRlZmluZVByb3BlcnR5KGV4cG9ydHMsIG5hbWUsIHsgZW51bWVyYWJsZTogdHJ1ZSwgZ2V0OiBnZXR0ZXIgfSk7XG4gXHRcdH1cbiBcdH07XG5cbiBcdC8vIGRlZmluZSBfX2VzTW9kdWxlIG9uIGV4cG9ydHNcbiBcdF9fd2VicGFja19yZXF1aXJlX18uciA9IGZ1bmN0aW9uKGV4cG9ydHMpIHtcbiBcdFx0aWYodHlwZW9mIFN5bWJvbCAhPT0gJ3VuZGVmaW5lZCcgJiYgU3ltYm9sLnRvU3RyaW5nVGFnKSB7XG4gXHRcdFx0T2JqZWN0LmRlZmluZVByb3BlcnR5KGV4cG9ydHMsIFN5bWJvbC50b1N0cmluZ1RhZywgeyB2YWx1ZTogJ01vZHVsZScgfSk7XG4gXHRcdH1cbiBcdFx0T2JqZWN0LmRlZmluZVByb3BlcnR5KGV4cG9ydHMsICdfX2VzTW9kdWxlJywgeyB2YWx1ZTogdHJ1ZSB9KTtcbiBcdH07XG5cbiBcdC8vIGNyZWF0ZSBhIGZha2UgbmFtZXNwYWNlIG9iamVjdFxuIFx0Ly8gbW9kZSAmIDE6IHZhbHVlIGlzIGEgbW9kdWxlIGlkLCByZXF1aXJlIGl0XG4gXHQvLyBtb2RlICYgMjogbWVyZ2UgYWxsIHByb3BlcnRpZXMgb2YgdmFsdWUgaW50byB0aGUgbnNcbiBcdC8vIG1vZGUgJiA0OiByZXR1cm4gdmFsdWUgd2hlbiBhbHJlYWR5IG5zIG9iamVjdFxuIFx0Ly8gbW9kZSAmIDh8MTogYmVoYXZlIGxpa2UgcmVxdWlyZVxuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy50ID0gZnVuY3Rpb24odmFsdWUsIG1vZGUpIHtcbiBcdFx0aWYobW9kZSAmIDEpIHZhbHVlID0gX193ZWJwYWNrX3JlcXVpcmVfXyh2YWx1ZSk7XG4gXHRcdGlmKG1vZGUgJiA4KSByZXR1cm4gdmFsdWU7XG4gXHRcdGlmKChtb2RlICYgNCkgJiYgdHlwZW9mIHZhbHVlID09PSAnb2JqZWN0JyAmJiB2YWx1ZSAmJiB2YWx1ZS5fX2VzTW9kdWxlKSByZXR1cm4gdmFsdWU7XG4gXHRcdHZhciBucyA9IE9iamVjdC5jcmVhdGUobnVsbCk7XG4gXHRcdF9fd2VicGFja19yZXF1aXJlX18ucihucyk7XG4gXHRcdE9iamVjdC5kZWZpbmVQcm9wZXJ0eShucywgJ2RlZmF1bHQnLCB7IGVudW1lcmFibGU6IHRydWUsIHZhbHVlOiB2YWx1ZSB9KTtcbiBcdFx0aWYobW9kZSAmIDIgJiYgdHlwZW9mIHZhbHVlICE9ICdzdHJpbmcnKSBmb3IodmFyIGtleSBpbiB2YWx1ZSkgX193ZWJwYWNrX3JlcXVpcmVfXy5kKG5zLCBrZXksIGZ1bmN0aW9uKGtleSkgeyByZXR1cm4gdmFsdWVba2V5XTsgfS5iaW5kKG51bGwsIGtleSkpO1xuIFx0XHRyZXR1cm4gbnM7XG4gXHR9O1xuXG4gXHQvLyBnZXREZWZhdWx0RXhwb3J0IGZ1bmN0aW9uIGZvciBjb21wYXRpYmlsaXR5IHdpdGggbm9uLWhhcm1vbnkgbW9kdWxlc1xuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5uID0gZnVuY3Rpb24obW9kdWxlKSB7XG4gXHRcdHZhciBnZXR0ZXIgPSBtb2R1bGUgJiYgbW9kdWxlLl9fZXNNb2R1bGUgP1xuIFx0XHRcdGZ1bmN0aW9uIGdldERlZmF1bHQoKSB7IHJldHVybiBtb2R1bGVbJ2RlZmF1bHQnXTsgfSA6XG4gXHRcdFx0ZnVuY3Rpb24gZ2V0TW9kdWxlRXhwb3J0cygpIHsgcmV0dXJuIG1vZHVsZTsgfTtcbiBcdFx0X193ZWJwYWNrX3JlcXVpcmVfXy5kKGdldHRlciwgJ2EnLCBnZXR0ZXIpO1xuIFx0XHRyZXR1cm4gZ2V0dGVyO1xuIFx0fTtcblxuIFx0Ly8gT2JqZWN0LnByb3RvdHlwZS5oYXNPd25Qcm9wZXJ0eS5jYWxsXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLm8gPSBmdW5jdGlvbihvYmplY3QsIHByb3BlcnR5KSB7IHJldHVybiBPYmplY3QucHJvdG90eXBlLmhhc093blByb3BlcnR5LmNhbGwob2JqZWN0LCBwcm9wZXJ0eSk7IH07XG5cbiBcdC8vIF9fd2VicGFja19wdWJsaWNfcGF0aF9fXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLnAgPSBcIlwiO1xuXG5cbiBcdC8vIExvYWQgZW50cnkgbW9kdWxlIGFuZCByZXR1cm4gZXhwb3J0c1xuIFx0cmV0dXJuIF9fd2VicGFja19yZXF1aXJlX18oX193ZWJwYWNrX3JlcXVpcmVfXy5zID0gXCIuL3BhZ2VzL2dhbGxlcnkuanNcIik7XG4iLCJjb25zdCBjbGllbnRDb25maWcgPSB7XHJcblx0c2l0ZVVybDogJ2h0dHA6Ly9sb2NhbGhvc3Q6MzAwMCcsXHJcblx0Z3JhcGhxbFVybDogJ2h0dHA6Ly9sb2NhbGhvc3Qvd29yZHByZXNzL2dyYXBocWwnLFxyXG59O1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgY2xpZW50Q29uZmlnOyIsImltcG9ydCBmZXRjaCBmcm9tICdub2RlLWZldGNoJztcclxuaW1wb3J0IHsgQXBvbGxvQ2xpZW50IH0gZnJvbSAnYXBvbGxvLWNsaWVudCc7XHJcbmltcG9ydCB7IEluTWVtb3J5Q2FjaGUgfSBmcm9tICdhcG9sbG8tY2FjaGUtaW5tZW1vcnknO1xyXG5pbXBvcnQgeyBjcmVhdGVIdHRwTGluayB9IGZyb20gJ2Fwb2xsby1saW5rLWh0dHAnO1xyXG5pbXBvcnQgeyBBcG9sbG9MaW5rIH0gZnJvbSBcImFwb2xsby1saW5rXCI7XHJcbmltcG9ydCB7IEludHJvc3BlY3Rpb25GcmFnbWVudE1hdGNoZXIgfSBmcm9tICdhcG9sbG8tY2FjaGUtaW5tZW1vcnknO1xyXG5pbXBvcnQgaW50cm9zcGVjdGlvblF1ZXJ5UmVzdWx0RGF0YSBmcm9tICcuLi9mcmFnbWVudFR5cGVzJztcclxuXHJcbmltcG9ydCBjbGllbnRDb25maWcgZnJvbSAnLi8uLi9jbGllbnQtY29uZmlnJztcclxuXHJcbi8vIEZyYWdtZW50IG1hdGNoZXIuXHJcbmNvbnN0IGZyYWdtZW50TWF0Y2hlciA9IG5ldyBJbnRyb3NwZWN0aW9uRnJhZ21lbnRNYXRjaGVyKHtcclxuXHRpbnRyb3NwZWN0aW9uUXVlcnlSZXN1bHREYXRhXHJcbn0pO1xyXG5cclxuXHJcbmV4cG9ydCBjb25zdCBtaWRkbGV3YXJlID0gbmV3IEFwb2xsb0xpbmsoICggb3BlcmF0aW9uLCBmb3J3YXJkICkgPT4ge1xyXG5cdC8qKlxyXG5cdCAqIElmIHNlc3Npb24gZGF0YSBleGlzdCBpbiBsb2NhbCBzdG9yYWdlLCBzZXQgdmFsdWUgYXMgc2Vzc2lvbiBoZWFkZXIuXHJcblx0ICovXHJcblx0Y29uc3Qgc2Vzc2lvbiA9ICggcHJvY2Vzcy5icm93c2VyICkgPyAgbG9jYWxTdG9yYWdlLmdldEl0ZW0oIFwid29vLXNlc3Npb25cIiApIDogbnVsbDtcclxuXHJcblx0aWYgKCBzZXNzaW9uICkge1xyXG5cdFx0b3BlcmF0aW9uLnNldENvbnRleHQoICggeyBoZWFkZXJzID0ge30gfSApID0+ICgge1xyXG5cdFx0XHRoZWFkZXJzOiB7XHJcblx0XHRcdFx0XCJ3b29jb21tZXJjZS1zZXNzaW9uXCI6IGBTZXNzaW9uICR7IHNlc3Npb24gfWBcclxuXHRcdFx0fVxyXG5cdFx0fSApICk7XHJcblx0fVxyXG5cclxuXHRyZXR1cm4gZm9yd2FyZCggb3BlcmF0aW9uICk7XHJcblxyXG59ICk7XHJcblxyXG4vKipcclxuICogQWZ0ZXJ3YXJlIG9wZXJhdGlvbi5cclxuICpcclxuICogVGhpcyBjYXRjaGVzIHRoZSBpbmNvbWluZyBzZXNzaW9uIHRva2VuIGFuZCBzdG9yZXMgaXQgaW4gbG9jYWxTdG9yYWdlLCBmb3IgZnV0dXJlIEdyYXBoUUwgcmVxdWVzdHMuXHJcbiAqL1xyXG5leHBvcnQgY29uc3QgYWZ0ZXJ3YXJlID0gbmV3IEFwb2xsb0xpbmsoICggb3BlcmF0aW9uLCBmb3J3YXJkICkgPT4ge1xyXG5cclxuXHRyZXR1cm4gZm9yd2FyZCggb3BlcmF0aW9uICkubWFwKCByZXNwb25zZSA9PiB7XHJcblx0XHQvKipcclxuXHRcdCAqIENoZWNrIGZvciBzZXNzaW9uIGhlYWRlciBhbmQgdXBkYXRlIHNlc3Npb24gaW4gbG9jYWwgc3RvcmFnZSBhY2NvcmRpbmdseS5cclxuXHRcdCAqL1xyXG5cdFx0Y29uc3QgY29udGV4dCA9IG9wZXJhdGlvbi5nZXRDb250ZXh0KCk7XHJcblx0XHRjb25zdCB7IHJlc3BvbnNlOiB7IGhlYWRlcnMgfSB9ICA9IGNvbnRleHQ7XHJcblx0XHRjb25zdCBzZXNzaW9uID0gaGVhZGVycy5nZXQoIFwid29vY29tbWVyY2Utc2Vzc2lvblwiICk7XHJcblxyXG5cdFx0aWYgKCBzZXNzaW9uICkge1xyXG5cclxuXHRcdFx0Ly8gUmVtb3ZlIHNlc3Npb24gZGF0YSBpZiBzZXNzaW9uIGRlc3Ryb3llZC5cclxuXHRcdFx0aWYgKCBcImZhbHNlXCIgPT09IHNlc3Npb24gKSB7XHJcblxyXG5cdFx0XHRcdGxvY2FsU3RvcmFnZS5yZW1vdmVJdGVtKCBcIndvby1zZXNzaW9uXCIgKTtcclxuXHJcblx0XHRcdFx0Ly8gVXBkYXRlIHNlc3Npb24gbmV3IGRhdGEgaWYgY2hhbmdlZC5cclxuXHRcdFx0fSBlbHNlIGlmICggbG9jYWxTdG9yYWdlLmdldEl0ZW0oIFwid29vLXNlc3Npb25cIiApICE9PSBzZXNzaW9uICkge1xyXG5cclxuXHRcdFx0XHRsb2NhbFN0b3JhZ2Uuc2V0SXRlbSggXCJ3b28tc2Vzc2lvblwiLCBoZWFkZXJzLmdldCggXCJ3b29jb21tZXJjZS1zZXNzaW9uXCIgKSApO1xyXG5cclxuXHRcdFx0fVxyXG5cdFx0fVxyXG5cclxuXHRcdHJldHVybiByZXNwb25zZTtcclxuXHJcblx0fSApO1xyXG59ICk7XHJcblxyXG5cclxuXHJcblxyXG5cclxuLy8gQXBvbGxvIEdyYXBoUUwgY2xpZW50LlxyXG5jb25zdCBjbGllbnQgPSBuZXcgQXBvbGxvQ2xpZW50KHtcclxuXHRsaW5rOiBtaWRkbGV3YXJlLmNvbmNhdCggYWZ0ZXJ3YXJlLmNvbmNhdCggY3JlYXRlSHR0cExpbmsoe1xyXG5cdFx0dXJpOiBjbGllbnRDb25maWcuZ3JhcGhxbFVybCxcclxuXHRcdGZldGNoOiBmZXRjaFxyXG5cdH0pICkgKSxcclxuXHRjYWNoZTogbmV3IEluTWVtb3J5Q2FjaGUoIHsgZnJhZ21lbnRNYXRjaGVyIH0gKSxcclxufSk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBjbGllbnQ7XHJcbiIsImltcG9ydCBTdGlja3lGb290ZXIgZnJvbSAncmVhY3Qtc3RpY2t5LWZvb3Rlcic7XHJcbmltcG9ydCBDYXJ0aWNvbiBmcm9tICcuL2NhcnRpY29uL0NhcnRpY29uJztcclxuY29uc3QgRm9vdGVyID0gKCkgPT57XHJcbiAgICByZXR1cm4oXHJcbiAgICAgICAgPFN0aWNreUZvb3RlciBib3R0b21UaHJlc2hvbGQ9ezUwfSBub3JtYWxTdHlsZXM9e3tiYWNrZ3JvdW5kQ29sb3I6IFwiI2QwZDNkNFwiLHBhZGRpbmc6IFwiMnJlbVwiLGFsaWduOlwiY2VudGVyc1wifX1cclxuICAgICAgICBzdGlja3lTdHlsZXM9e3tiYWNrZ3JvdW5kQ29sb3I6IFwicmdiYSgyNTUsMjU1LDI1NSwuOClcIixwYWRkaW5nOiBcIjJyZW1cIix3aWR0aDpcIjEwMCVcIn19PlxyXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJyb3dcIiBzdHlsZT17e3RleHRBbGlnbjonY2VudGVyJ319PlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8YSBocmVmPVwiL1Nob3BcIiBjbGFzc05hbWU9XCJjb2xmXCI+PGkgY2xhc3NOYW1lPVwidGkgdGktbGF5b3V0LWdyaWQyXCI+PC9pPjxici8+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxpIHN0eWxlPXt7Zm9udFNpemU6XCIxMHB4XCIsY29sb3I6XCJibGFja1wifX0+U2hvcDwvaT48L2E+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxhIGhyZWY9XCIvU2hvcFwiIGNsYXNzTmFtZT1cImNvbGZcIj48aSBjbGFzc05hbWU9XCJ0aSB0aS1oZWFydFwiPjwvaT48YnIvPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8aSBzdHlsZT17e2ZvbnRTaXplOlwiMTBweFwiLGNvbG9yOlwiYmxhY2tcIn19Pldpc2hsaXN0PC9pPjwvYT5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPGEgaHJlZj1cIi9TaG9wXCIgY2xhc3NOYW1lPVwiY29sZlwiPjxpIGNsYXNzTmFtZT1cInRpIHRpLXVzZXJcIj48L2k+PGJyLz5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPGkgc3R5bGU9e3tmb250U2l6ZTpcIjEwcHhcIixjb2xvcjpcImJsYWNrXCJ9fT5BY2NvdW50PC9pPjwvYT5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPGEgaHJlZj1cIi9TaG9wXCIgY2xhc3NOYW1lPVwiY29sZlwiPjxDYXJ0aWNvbi8+PC9hPlxyXG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDwvU3RpY2t5Rm9vdGVyPlxyXG4gICAgKTtcclxufVxyXG5leHBvcnQgZGVmYXVsdCBGb290ZXI7IiwiY29uc3QgRm9vdGVyZGF0YSA9ICgpID0+e1xyXG4gICAgcmV0dXJuKFxyXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZm9vdGVyLWFyZWFcIj5cclxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb250YWluZXJcIj5cclxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJyb3cgc2VjdGlvbl9nYXBcIj5cclxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY29sLWxnLTMgY29sLW1kLTYgY29sLXNtLTZcIj5cclxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic2luZ2xlLWZvb3Rlci13aWRnZXQgdHBfd2lkZ2V0c1wiPlxyXG4gICAgICAgICAgICAgICAgICAgIDxoNCBjbGFzc05hbWU9XCJmb290ZXJfdGl0bGUgbGFyZ2VfdGl0bGVcIj5JbXBvcnRlbnQgTGlua3M8L2g0PlxyXG4gICAgICAgICAgICAgICAgICAgIDx1bCBjbGFzc05hbWU9XCJsaXN0XCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxsaT48YSAgY2xhc3NOYW1lPVwibG5rXCIgaHJlZj1cIiNcIj5EaXNjbGFpbWVyPC9hPjwvbGk+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxsaT48YSBjbGFzc05hbWU9XCJsbmtcIiBocmVmPVwiI1wiPlByaXZhY3kgUG9saWN5PC9hPjwvbGk+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxsaT48YSBjbGFzc05hbWU9XCJsbmtcIiBocmVmPVwiI1wiPlNoaXBwaW5nIFBvbGljeTwvYT48L2xpPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8bGk+PGEgY2xhc3NOYW1lPVwibG5rXCIgaHJlZj1cIiNcIj5UZXJtcyBhbmQgQ29uZGl0aW9uczwvYT48L2xpPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8bGk+PGEgY2xhc3NOYW1lPVwibG5rXCIgaHJlZj1cIiNcIj5SZXR1cm4gYW5kIFJlZnVuZCBQb2xpY3k8L2E+PC9saT5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPGxpPjxhIGNsYXNzTmFtZT1cImxua1wiIGhyZWY9XCIjXCI+Q29udGFjdDwvYT48L2xpPlxyXG4gICAgICAgICAgICAgICAgICAgIDwvdWw+XHJcbiAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJvZmZzZXQtbGctMSBjb2wtbGctMiBjb2wtbWQtNiBjb2wtc20tNlwiPlxyXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzaW5nbGUtZm9vdGVyLXdpZGdldCB0cF93aWRnZXRzXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgPGg0IGNsYXNzTmFtZT1cImZvb3Rlcl90aXRsZSBsYXJnZV90aXRsZVwiPlVzZUZ1bGxMaW5rczwvaDQ+XHJcbiAgICAgICAgICAgICAgICAgICAgPHVsIGNsYXNzTmFtZT1cImxpc3RcIj5cclxuICAgICAgICAgICAgICAgICAgICA8bGk+PGEgY2xhc3NOYW1lPVwibG5rXCIgaHJlZj1cIiNcIj5GQVE8L2E+PC9saT5cclxuICAgICAgICAgICAgICAgICAgICA8bGk+PGEgY2xhc3NOYW1lPVwibG5rXCIgaHJlZj1cIiNcIj5DYXJlZXJzPC9hPjwvbGk+XHJcbiAgICAgICAgICAgICAgICAgICAgPGxpPjxhIGNsYXNzTmFtZT1cImxua1wiIGhyZWY9XCIjXCI+Q29udGFjdCBVczwvYT48L2xpPlxyXG4gICAgICAgICAgICAgICAgICAgIDxsaT48YSBjbGFzc05hbWU9XCJsbmtcIiBocmVmPVwiI1wiPlNpdGVtYXA8L2E+PC9saT5cclxuICAgICAgICAgICAgICAgICAgICA8L3VsPlxyXG4gICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY29sLWxnLTIgY29sLW1kLTYgY29sLXNtLTZcIj5cclxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic2luZ2xlLWZvb3Rlci13aWRnZXQgaW5zdGFmZWVkXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzaGlwXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxwPjxpIGNsYXNzTmFtZT1cInRpIHRpLXRydWNrXCI+IDxsYWJlbD5GUkVFIFNISVBQSU5HPC9sYWJlbD48L2k+PC9wPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwic210eHRcIj5BbGwgT3ZlciBJbmRpYTwvbGFiZWw+XHJcbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzaGlwXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxwPjxpIGNsYXNzTmFtZT1cInRpIHRpLWhlYWRwaG9uZS1hbHRcIj4gPGxhYmVsPjI0LzcgU1VQUE9SVDwvbGFiZWw+PC9pPjwvcD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cInNtdHh0XCI+R2V0IGluIHRvdWNoIDI0Lzc8L2xhYmVsPlxyXG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic2hpcFwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8cD48aSBjbGFzc05hbWU9XCJ0aSB0aS1zaGFyZS1hbHRcIj4gPGxhYmVsPlJFVFVSTiBQT0xJQ1k8L2xhYmVsPjwvaT48L3A+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJzbXR4dFwiPjE0IGRheXMgZWFzeSByZXR1cm48L2xhYmVsPlxyXG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PiAgICAgICAgICAgIFxyXG4gICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwib2Zmc2V0LWxnLTEgY29sLWxnLTMgY29sLW1kLTYgY29sLXNtLTZcIj5cclxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic2luZ2xlLWZvb3Rlci13aWRnZXQgdHBfd2lkZ2V0c1wiPlxyXG4gICAgICAgICAgICAgICAgICAgIDxoNCBjbGFzc05hbWU9XCJmb290ZXJfdGl0bGVcIj48c3BhbiBjbGFzc05hbWU9XCJ0aSB0aS1ob21lXCI+PC9zcGFuPkNvbnRhY3QgVXM8L2g0PlxyXG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWwtNDBcIj5cclxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU+PGkgY2xhc3NOYW1lPVwidGkgdGktbG9jYXRpb24tcGluXCI+PC9pPk9yYml6IEFyY2FkZSxDYWxpY3V0IFJvYWQsTkgtMTcsS2Fra2FkLE1hbGFwcHVyYW0sS2VyYWxhLTY3NjMwNjwvcD5cclxuICAgICAgICAgICAgICAgICAgICA8cD48aSBjbGFzc05hbWU9XCJ0aSB0aS1sb2NhdGlvbi1waW5cIj48L2k+S2F6aGkgU3RyZWV0LE9QUCBWaWpheWEgQ29sbGVnZSxCYXNhdmFuYWd1ZGksQmFuZ2Fsb3JlLTU2MDAwNDwvcD5cclxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJzbS1oZWFkXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRpIHRpLW1vYmlsZVwiPjwvc3Bhbj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgUGhvbmUgTnVtYmVyXHJcbiAgICAgICAgICAgICAgICAgICAgPC9wPlxyXG4gICAgICAgICAgICAgICAgICAgIDxwPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAoKzkxKTk1Njc1NTU2NTZcclxuICAgICAgICAgICAgICAgICAgICAgICAgKCs5MSk3MDEyNzE3MDgzXHJcbiAgICAgICAgICAgICAgICAgICAgPC9wPiAgXHJcbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwic20taGVhZFwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0aSB0aS1lbWFpbFwiPjwvc3Bhbj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgRW1haWxcclxuICAgICAgICAgICAgICAgICAgICA8L3A+XHJcbiAgICAgICAgICAgICAgICAgICAgPHA+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGNvbm5lY3RAb3JiaXouaW5cclxuICAgICAgICAgICAgICAgICAgICA8L3A+XHJcbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICApO1xyXG59XHJcbmV4cG9ydCBkZWZhdWx0IEZvb3RlcmRhdGE7IiwiaW1wb3J0IE5hdmRhdGEgZnJvbSBcIi4vTmF2ZGF0YVwiO1xyXG5jb25zdCBIZWFkZXIgPSAoKSA9PiB7XHJcblx0cmV0dXJuIChcclxuXHRcdDxkaXY+XHJcblx0XHRcdDxOYXZkYXRhLz5cclxuXHRcdDwvZGl2PlxyXG5cdClcclxufTtcclxuXHJcbmV4cG9ydCBkZWZhdWx0IEhlYWRlcjtcclxuIiwiaW1wb3J0IE5hdmJhciBmcm9tICdyZWFjdC1ib290c3RyYXAvTmF2YmFyJztcclxuaW1wb3J0IE5hdiBmcm9tICdyZWFjdC1ib290c3RyYXAvTmF2JztcclxuaW1wb3J0IEZvcm0gZnJvbSAncmVhY3QtYm9vdHN0cmFwL0Zvcm0nO1xyXG5pbXBvcnQgRm9ybUNvbnRyb2wgZnJvbSAncmVhY3QtYm9vdHN0cmFwL0Zvcm1Db250cm9sJztcclxuaW1wb3J0IEJ1dHRvbiBmcm9tICdyZWFjdC1ib290c3RyYXAvQnV0dG9uJztcclxuaW1wb3J0IEltYWdlIGZyb20gJ3JlYWN0LWJvb3RzdHJhcC9JbWFnZSc7XHJcbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XHJcblxyXG5jb25zdCBOYXZkYXRhID0gKCkgPT57XHJcbiAgICByZXR1cm4gPE5hdmJhciBiZz1cImxpZ2h0XCIgZXhwYW5kPVwibGdcIiBjbGFzc05hbWU9XCJoZWFkZXJfYXJlYVwiPlxyXG4gICAgICAgICAgICAgIDxOYXZiYXIuQnJhbmQgaHJlZj1cIiNob21lXCIgY2xhc3NOYW1lPVwibmF2YmFyLWJyYW5kIGxvZ29faFwiPlxyXG4gICAgICAgICAgICAgICAgPEltYWdlIGNsYXNzTmFtZT1cImltZ2xvZ29cIiBzcmM9XCJodHRwOi8vbG9jYWxob3N0L3dvcmRwcmVzcy93cC1jb250ZW50L3VwbG9hZHMvMjAyMC8xMS9jcm9wcGVkLWxvZ28ucG5nXCI+PC9JbWFnZT5cclxuICAgICAgICAgICAgICAgIDwvTmF2YmFyLkJyYW5kPlxyXG4gICAgICAgICAgICAgIDxOYXZiYXIuVG9nZ2xlIGFyaWEtY29udHJvbHM9XCJiYXNpYy1uYXZiYXItbmF2XCIgLz5cclxuICAgICAgICAgICAgICA8TmF2YmFyLkNvbGxhcHNlIGlkPVwiYmFzaWMtbmF2YmFyLW5hdlwiPlxyXG4gICAgICAgICAgICAgICAgPE5hdiBjbGFzc05hbWU9XCJtci1hdXRvXCI+XHJcbiAgICAgICAgICAgICAgICAgIDxOYXYuTGluayBocmVmPVwiL1wiIGNsYXNzTmFtZT1cIm5hdi1pdGVtXCI+SE9NRTwvTmF2Lkxpbms+XHJcbiAgICAgICAgICAgICAgICAgIDxOYXYuTGluayBocmVmPVwiL1Nob3BcIiBjbGFzc05hbWU9XCJuYXYtaXRlbVwiPlNIT1A8L05hdi5MaW5rPlxyXG4gICAgICAgICAgICAgICAgICA8TmF2LkxpbmsgaHJlZj1cIi9nYWxsZXJ5XCIgY2xhc3NOYW1lPVwibmF2LWl0ZW1cIj5HQUxMRVJZPC9OYXYuTGluaz5cclxuICAgICAgICAgICAgICAgICAgPE5hdi5MaW5rIGhyZWY9XCIvQWJvdXRcIiBjbGFzc05hbWU9XCJuYXYtaXRlbVwiPkFCT1VUIFVTPC9OYXYuTGluaz5cclxuICAgICAgICAgICAgICAgICAgPE5hdi5MaW5rIGhyZWY9XCIvc2luZ2xlcHJvZHVjdFwiIGNsYXNzTmFtZT1cIm5hdi1pdGVtXCI+Q0FSVDwvTmF2Lkxpbms+XHJcbiAgICAgICAgICAgICAgICAgIDxOYXYuTGluayBocmVmPVwiI2xpbmtcIiBjbGFzc05hbWU9XCJuYXYtaXRlbVwiPldJU0hMSVNUPC9OYXYuTGluaz5cclxuICAgICAgICAgICAgICAgICAgPE5hdi5MaW5rIGhyZWY9XCIjbGlua1wiIGNsYXNzTmFtZT1cIm5hdi1pdGVtXCI+TVkgQUNDT1VOVDwvTmF2Lkxpbms+XHJcbiAgICAgICAgICAgICAgICAgIDxOYXYuTGluayBocmVmPVwiI2xpbmtcIiBjbGFzc05hbWU9XCJuYXYtaXRlbVwiPkxPR09VVDwvTmF2Lkxpbms+XHJcbiAgICAgICAgICAgICAgICA8L05hdj5cclxuICAgICAgICAgICAgICAgIDxGb3JtIGlubGluZT5cclxuICAgICAgICAgICAgICAgICAgPEZvcm1Db250cm9sIHR5cGU9XCJ0ZXh0XCIgcGxhY2Vob2xkZXI9XCJTZWFyY2hcIiBjbGFzc05hbWU9XCJmb3JtLWNvbnRyb2xcIiAvPlxyXG4gICAgICAgICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9XCJzZWNvbmRhcnlcIj48aSBjbGFzc05hbWU9XCJ0aSB0aS1zZWFyY2hcIj48L2k+PC9CdXR0b24+XHJcbiAgICAgICAgICAgICAgICA8L0Zvcm0+XHJcbiAgICAgICAgICAgICAgPC9OYXZiYXIuQ29sbGFwc2U+XHJcbiAgICAgICAgICAgIDwvTmF2YmFyPlxyXG59XHJcbmV4cG9ydCBkZWZhdWx0IE5hdmRhdGE7IiwiaW1wb3J0IHsgdXNlQ29udGV4dCB9IGZyb20gJ3JlYWN0JztcclxuaW1wb3J0IHsgQXBwQ29udGV4dCB9IGZyb20gXCIuLy4uL2NvbnRleHQvQXBwQ29udGV4dFwiO1xyXG5pbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XHJcblxyXG5jb25zdCBDYXJ0aWNvbiA9ICgpID0+IHtcclxuICAgIGNvbnN0WyBjYXJ0IF0gPSB1c2VDb250ZXh0KCBBcHBDb250ZXh0KTtcclxuICAgIGNvbnN0IHByb2R1Y3RzQ291bnQgPSAoIG51bGwgIT09IGNhcnQgJiYgT2JqZWN0LmtleXMoIGNhcnQgKS5sZW5ndGggKSA/IGNhcnQudG90YWxQcm9kdWN0c0NvdW50IDogJyc7XHJcbiAgICBjb25zdCB0b3RhbFByaWNlID0gKCBudWxsICE9PSBjYXJ0ICYmIE9iamVjdC5rZXlzKCBjYXJ0ICkubGVuZ3RoICkgPyBjYXJ0LnRvdGFsUHJvZHVjdHNQcmljZSA6ICcnO1xyXG4gICAgcmV0dXJuKFxyXG4gICAgICAgPFJlYWN0LkZyYWdtZW50PlxyXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIndvby1uZXh0LWNhcnQtd3JhcFwiPlxyXG4gICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwid29vLW5leHQtY2FydC1pY29uLWNvbnRhaW5lclwiPlxyXG4gICAgICAgICAgICAgICAgICAgIDxpIGNsYXNzTmFtZT1cInRpIHRpLXNob3BwaW5nLWNhcnQgd29vLW5leHQtY2FydC1pY29uXCIvPlxyXG4gICAgICAgICAgICAgICAgICAgIHsgcHJvZHVjdHNDb3VudCA/IDxzcGFuIGNsYXNzTmFtZT1cIndvby1uZXh0LWNhcnQtY291bnRcIj57IHByb2R1Y3RzQ291bnQgfTwvc3Bhbj4gOiAnJyB9XHJcbiAgICAgICAgICAgICAgICA8L3NwYW4+XHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICA8aSBzdHlsZT17e2ZvbnRTaXplOlwiMTBweFwiLGNvbG9yOlwiYmxhY2tcIn19PkNhcnQ8L2k+XHJcbiAgICAgICA8L1JlYWN0LkZyYWdtZW50PlxyXG4gICAgKVxyXG59O1xyXG5leHBvcnQgZGVmYXVsdCBDYXJ0aWNvbjtcclxuIiwiaW1wb3J0IFJlYWN0LCB7IHVzZVN0YXRlLCB1c2VFZmZlY3QgfSBmcm9tICdyZWFjdCc7XHJcbmV4cG9ydCBjb25zdCBBcHBDb250ZXh0ID0gUmVhY3QuY3JlYXRlQ29udGV4dChbXHJcblx0e30sXHJcblx0KCkgPT4ge31cclxuXSk7XHJcbmV4cG9ydCBjb25zdCBBcHBQcm92aWRlciA9ICggcHJvcHMgKSA9PiB7XHJcblxyXG5cdGNvbnN0IFsgY2FydCwgc2V0Q2FydCBdID0gdXNlU3RhdGUoIG51bGwgKTtcclxuXHJcblx0dXNlRWZmZWN0KCAoKSA9PiB7XHJcblxyXG5cdFx0Ly8gQFRPRE8gV2lsbCBhZGQgb3B0aW9uIHRvIHNob3cgdGhlIGNhcnQgd2l0aCBsb2NhbFN0b3JhZ2UgbGF0ZXIuXHJcblx0XHRpZiAoIHByb2Nlc3MuYnJvd3NlciApIHtcclxuXHJcblx0XHRcdGxldCBjYXJ0RGF0YSA9IGxvY2FsU3RvcmFnZS5nZXRJdGVtKCAna2V5bW9qaS1jYXJ0JyApO1xyXG5cdFx0XHRjYXJ0RGF0YSA9IG51bGwgIT09IGNhcnREYXRhID8gSlNPTi5wYXJzZSggY2FydERhdGEgKSA6ICcnO1xyXG5cdFx0XHRzZXRDYXJ0KGNhcnREYXRhKTtcclxuXHJcblx0XHR9XHJcblxyXG4gICAgfSwgW10gKTtcclxuICAgIHJldHVybiAoXHJcblx0XHQ8QXBwQ29udGV4dC5Qcm92aWRlciB2YWx1ZT17IFsgY2FydCwgc2V0Q2FydCBdIH0+XHJcblx0XHRcdHsgcHJvcHMuY2hpbGRyZW4gfVxyXG5cdFx0PC9BcHBDb250ZXh0LlByb3ZpZGVyPlxyXG5cdCk7XHJcbn07IiwiaW1wb3J0IENvbnRhaW5lciBmcm9tICdyZWFjdC1ib290c3RyYXAvQ29udGFpbmVyJztcclxuaW1wb3J0IFJvdyBmcm9tICdyZWFjdC1ib290c3RyYXAvUm93JztcclxuaW1wb3J0IENvbCBmcm9tICdyZWFjdC1ib290c3RyYXAvQ29sJztcclxuaW1wb3J0IEltYWdlIGZyb20gJ3JlYWN0LWJvb3RzdHJhcC9JbWFnZSc7XHJcbmNvbnN0IEdhbGxlcnkgPSAocHJvcGdsKSA9PntcclxuICAgIGNvbnN0IHsgbWVkaWFJdGVtIH0gPSBwcm9wZ2w7XHJcbiAgICByZXR1cm4oXHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb2wteGwtMyBjb2wtbGctMyBjb2wtbWQtMyBjb2wtc20tMTIgY29sLTEyXCI+XHJcbiAgICAgICAgICAgIDxhPjxJbWFnZSBzcmM9e21lZGlhSXRlbS5pbWFnZS5zb3VyY2VVcmx9IHRodW1ibmFpbCAvPjwvYT4gIFxyXG4gICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgXHJcbiAgICApO1xyXG59XHJcbmV4cG9ydCBkZWZhdWx0IEdhbGxlcnk7IiwiaW1wb3J0ICcuLi8uLi9zdHlsZXMvU3R5bGUuY3NzJztcclxuaW1wb3J0IEZvb3RlciBmcm9tICcuLi9Gb290ZXInO1xyXG5pbXBvcnQgRm9vdGVyZGF0YSBmcm9tICcuLi9Gb290ZXJkYXRhJztcclxuaW1wb3J0IEhlYWRlciBmcm9tICcuLi9IZWFkZXInO1xyXG5pbXBvcnQgR2FsbGVyeSBmcm9tICcuL0dhbGxlcnknO1xyXG5pbXBvcnQgY2xpZW50IGZyb20gXCIuLi9BcG9sbG9DbGllbnRcIjtcclxuaW1wb3J0IHsgQXBwUHJvdmlkZXIgfSBmcm9tIFwiLi4vY29udGV4dC9BcHBDb250ZXh0XCI7XHJcbmltcG9ydCB7IEFwb2xsb1Byb3ZpZGVyIH0gZnJvbSAncmVhY3QtYXBvbGxvJztcclxuaW1wb3J0IHsgQXBvbGxvUHJvdmlkZXIgYXMgQXBvbGxvSG9va3NQcm92aWRlciB9IGZyb20gJ0BhcG9sbG8vcmVhY3QtaG9va3MnO1xyXG5cclxuY29uc3QgTGF5b3V0ID0gKHByb3BnbHkpID0+IHtcclxuICAgIHJldHVybihcclxuICAgICAgICA8QXBwUHJvdmlkZXI+XHJcbiAgICAgICAgPEFwb2xsb1Byb3ZpZGVyIGNsaWVudD17IGNsaWVudCB9PlxyXG4gICAgICAgICAgICA8QXBvbGxvSG9va3NQcm92aWRlciBjbGllbnQ9eyBjbGllbnQgfT5cclxuICAgICAgICA8ZGl2PlxyXG4gICAgICAgICAgICA8dGl0bGU+R2FsbGVyeTwvdGl0bGU+XHJcbiAgICAgICAgICAgIDxsaW5rIHJlbD1cInN0eWxlc2hlZXRcIiBocmVmPVwiaHR0cHM6Ly91bnBrZy5jb20vQGljb24vdGhlbWlmeS1pY29ucy90aGVtaWZ5LWljb25zLmNzc1wiLz5cclxuICAgICAgICAgICAgPGxpbmsgcmVsPVwic3R5bGVzaGVldFwiIGhyZWY9XCJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL2Jvb3RzdHJhcEA0LjUuMy9kaXN0L2Nzcy9ib290c3RyYXAubWluLmNzc1wiLz5cclxuICAgICAgICAgICAgPEhlYWRlci8+XHJcbiAgICAgICAgICAgIHtwcm9wZ2x5LmNoaWxkcmVufVxyXG4gICAgICAgICAgICA8Rm9vdGVyZGF0YS8+XHJcbiAgICAgICAgICAgIDxGb290ZXIvPlxyXG4gICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDwvQXBvbGxvSG9va3NQcm92aWRlcj5cclxuXHRcdFx0PC9BcG9sbG9Qcm92aWRlcj5cclxuXHRcdDwvQXBwUHJvdmlkZXI+XHJcbiAgICApO1xyXG59XHJcbmV4cG9ydCBkZWZhdWx0IExheW91dDsiLCJpbXBvcnQgTGF5b3V0IGZyb20gXCIuLi9jb21wb25lbnRzL2dhbGxlcnkvTGF5b3V0XCI7XHJcbmltcG9ydCBHYWxsZXJ5IGZyb20gXCIuLi9jb21wb25lbnRzL2dhbGxlcnkvR2FsbGVyeVwiO1xyXG5pbXBvcnQgY2xpZW50IGZyb20gXCIuLi9jb21wb25lbnRzL0Fwb2xsb0NsaWVudFwiO1xyXG5pbXBvcnQgTUVESUFfTElTVCBmcm9tIFwiLi4vcXVlcmllcy9tZWRpYWl0ZW1zXCI7XHJcblxyXG5cclxuY29uc3QgZ2FsbGVyeSA9ICggcHJvcGcgKSA9PiB7XHJcblx0Y29uc3QgeyBtZWRpYUl0ZW1zIH0gPSBwcm9wZztcclxuXHRyZXR1cm4oIFxyXG5cdFx0PExheW91dD5cclxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwcm9kdWN0LWNvbnRhaW5lclwiPlxyXG5cdFx0XHRcdHsgbWVkaWFJdGVtcy5sZW5ndGggPyAoXHJcblx0XHRcdFx0XHRtZWRpYUl0ZW1zLm1hcCggbWVkaWFJdGVtID0+IDxHYWxsZXJ5IGtleT17IG1lZGlhSXRlbS5pZCB9IG1lZGlhSXRlbT17IG1lZGlhSXRlbSB9Lz4gKVxyXG5cdFx0XHRcdFx0XHQpIDogJycgfVxyXG5cdFx0XHQ8L2Rpdj5cclxuICAgICAgICA8L0xheW91dD5cclxuXHRcdClcclxuXHR9O1xyXG5cdGdhbGxlcnkuZ2V0SW5pdGlhbFByb3BzID0gYXN5bmMgKCkgPT4ge1xyXG5cclxuXHRcdGNvbnN0IHJlc3VsdCA9IGF3YWl0IGNsaWVudC5xdWVyeSgge1xyXG5cdFx0XHRxdWVyeTogTUVESUFfTElTVCxcclxuXHRcdH0gKTtcclxuXHRcclxuXHRcdHJldHVybiB7XHJcblx0XHRcdG1lZGlhSXRlbXM6IHJlc3VsdC5kYXRhLnByb2R1Y3RzLm5vZGVzLFxyXG5cdFx0fVxyXG5cdFxyXG5cdH07XHJcblx0XHJcblx0ZXhwb3J0IGRlZmF1bHQgZ2FsbGVyeTsiLCJpbXBvcnQgZ3FsIGZyb20gXCJncmFwaHFsLXRhZ1wiO1xyXG5cclxuY29uc3QgTUVESUFfTElTVCA9IGdxbGBxdWVyeSB7XHJcbiAgcHJvZHVjdHMge1xyXG4gICAgbm9kZXMge1xyXG4gICAgICBpbWFnZSB7XHJcbiAgICAgICAgaWRcclxuICAgICAgICBzbHVnXHJcbiAgICAgICAgc291cmNlVXJsXHJcbiAgICAgIH1cclxuICAgIH1cclxuICB9XHJcbn1gO1xyXG5leHBvcnQgZGVmYXVsdCBNRURJQV9MSVNUOyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcIkBhcG9sbG8vcmVhY3QtaG9va3NcIik7IiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwiYXBvbGxvLWNhY2hlLWlubWVtb3J5XCIpOyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcImFwb2xsby1jbGllbnRcIik7IiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwiYXBvbGxvLWxpbmtcIik7IiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwiYXBvbGxvLWxpbmstaHR0cFwiKTsiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJncmFwaHFsLXRhZ1wiKTsiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJub2RlLWZldGNoXCIpOyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlYWN0XCIpOyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlYWN0LWFwb2xsb1wiKTsiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJyZWFjdC1ib290c3RyYXAvQnV0dG9uXCIpOyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlYWN0LWJvb3RzdHJhcC9Db2xcIik7IiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicmVhY3QtYm9vdHN0cmFwL0NvbnRhaW5lclwiKTsiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJyZWFjdC1ib290c3RyYXAvRm9ybVwiKTsiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJyZWFjdC1ib290c3RyYXAvRm9ybUNvbnRyb2xcIik7IiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicmVhY3QtYm9vdHN0cmFwL0ltYWdlXCIpOyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlYWN0LWJvb3RzdHJhcC9OYXZcIik7IiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicmVhY3QtYm9vdHN0cmFwL05hdmJhclwiKTsiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJyZWFjdC1ib290c3RyYXAvUm93XCIpOyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlYWN0LXN0aWNreS1mb290ZXJcIik7IiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicmVhY3QvanN4LWRldi1ydW50aW1lXCIpOyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlYWN0L2pzeC1ydW50aW1lXCIpOyJdLCJzb3VyY2VSb290IjoiIn0=

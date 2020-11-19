@@ -14,7 +14,7 @@ export const AppProvider = ( props ) => {
 
 			let cartData = localStorage.getItem( 'keymoji-cart' );
 			cartData = null !== cartData ? JSON.parse( cartData ) : '';
-			setCart({products:'123'});
+			setCart(cartData);
 
 		}
 

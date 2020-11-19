@@ -4,15 +4,15 @@ import client from "../components/ApolloClient";
 import PRODUCTS_LIST from "../queries/productlist";
 import Productlistbycat from "../components/catbyproduct/Productlistbycat";
 
-const listproduct = withRouter( props => {
+const listproduct = withRouter( propli => {
 
-	const { categoryName, products } = props;
+	const { categoryName, products } = propli;
 
 	return (
 		<Layout>
 			<div className="content-wrap">
 				{ categoryName ? <h3 className="product-container pl-5">{ categoryName }</h3> : '' }
-				<div className="product-container row">
+				<div className="product-container">
 					{ undefined !== products && products.length ? (
 						products.map( lst => <Productlistbycat key={ lst.id } lst={ lst } /> )
 					) : ' '}

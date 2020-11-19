@@ -1,16 +1,21 @@
 import { useContext } from 'react';
 import { AppContext } from "./../context/AppContext";
-import Link from 'next/link';
+import React from "react";
 
 const Carticon = () => {
-    const[ cart,setCart ] = useContext( AppContext);
+    const[ cart ] = useContext( AppContext);
     const productsCount = ( null !== cart && Object.keys( cart ).length ) ? cart.totalProductsCount : '';
     const totalPrice = ( null !== cart && Object.keys( cart ).length ) ? cart.totalProductsPrice : '';
     return(
-        <div>
-            <i className="ti ti-shopping-cart"></i><br/>
-                        <label>Cart<label>'('{ productsCount ?productsCount:''}')'</label></label>
-        </div>
+       <React.Fragment>
+            <div className="woo-next-cart-wrap">
+                <span className="woo-next-cart-icon-container">
+                    <i className="ti ti-shopping-cart woo-next-cart-icon"/>
+                    { productsCount ? <span className="woo-next-cart-count">{ productsCount }</span> : '' }
+                </span>
+            </div>
+            <i style={{fontSize:"10px",color:"black"}}>Cart</i>
+       </React.Fragment>
     )
 };
 export default Carticon;

@@ -2,8 +2,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-const Gallery = (prop) =>{
-    const { mediaItem } = prop;
+const Gallery = (propgl) =>{
+    const { mediaItem } = propgl;
     return(
         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
             <a><Image src={mediaItem.image.sourceUrl} thumbnail /></a>  

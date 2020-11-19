@@ -1,12 +1,7 @@
 {
-  "/About": "pages/About.html",
-  "/Shop": "pages/Shop.js",
-  "/gallery": "pages/gallery.js",
-  "/": "pages/index.js",
-  "/listproduct": "pages/listproduct.js",
-  "/singlepro": "pages/singlepro.js",
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/singlepro": "pages/singlepro.js",
+  "/Shop": "pages/Shop.js"
 }
